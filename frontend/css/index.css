@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.jumbotron {
+    background-image: url(images/team.jpg);
+    height: 250px;
+    opacity: 0.4;
+    background-repeat: repeat;
+  }
+
+#app img {
+    width: 30%;
+    height: 25%;
+
+}
+
+#app h4 {
+    padding-top: 50px;
+}
