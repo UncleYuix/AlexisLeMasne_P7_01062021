@@ -64,26 +64,27 @@
       </div>
     </header>
 
-
+<aside>
+  <div class="row">
+    <div class="col-12 text-center font-weight-light xs-Display 3">
+      <div class="jumbotron text-center" height: 200px;>
+      </div>
+      <h1 class="font-weight-light"> Groupomania </h1>
+      <h2> Structurons notre collectif vers un avenir co-construit et bienveillant</h2>
+      <h3> Et la bonne année aussi, profitez du 13e mois !</h3>
+      <h4> le forum est soumis a modération, contactez l'administrateur en cas problèmes ou situation ne respectant pas les <a href="rules.html"> règles du forum </a><h4>
+    </div>
+  </div>
+</aside>
 
     <article>
 
 
-      <div class="row">
-        <div class="col-12 text-center font-weight-light xs-Display 3">
-          <div class="jumbotron text-center" height: 200px;>
-          </div>
-          <h1 class="font-weight-light"> Groupomania </h1>
-          <h2> Structurons notre collectif vers un avenir co-construit et bienveillant</h2>
-          <h3> Et la bonne année aussi, profitez du 13e mois !</h3>
-        </div>
-      </div>
 
-    </article>
 
     <div id="app" class="text-center pt-5">
 
-      <div class="card">
+      <!-- <div class="post ">
         <h4>posté par {{ author }}</h4>
         <div class="product-image">
           <img v-bind:src="image">
@@ -93,17 +94,33 @@
           <p> {{ author2 }} dit : </p> 
           <div class="message border border-dark rounded-circle bg-success"> [ {{message1}} ] </div>
         </div>
-      </div>
+      </div> -->
 
-
-      <div class="card">
-        <h4>posté par {{ author2 }}</h4>
-        <div class="product-image">
-          <img v-bind:src="image2">
+      <div class="card bg-light mb-3 mt-5" id="postedMessage" style="max-width: 33%">
+        <div class="card-header">Posté par <span class="author"> {{ author }} </span>  à {{date}} </div>
+        <div class="card-body">
+          <h5 class="card-title">mes vacances au Cambodge</h5>
+          <img v-bind:src="gif">
         </div>
+        <p class="card-text border border-dark"> <span class="author"> {{author2}} </span> dit : {{message2}}</p>
+        <p class="card-text border border-dark"> <span class="author"> {{author3}} </span> dit : {{message3}}</p>
       </div>
+
+
+      <div class="card bg-light mb-3 mt-5" id="postedMessage" style="max-width: 33%">
+        <div class="card-header">Posté par <span class="author"> {{ author2 }} </span>  à {{date}} </div>
+        <div class="card-body">
+          <h5 class="card-title"> afterwork entre collègues</h5>
+          <img v-bind:src="image">
+        </div>
+        <p class="card-text border border-dark"> <span class="author"> {{author}} </span> dit : {{message1}}</p>
+        <p class="card-text border border-dark"> <span class="author"> {{author3}} </span> dit : {{message3}}</p>
+      </div>
+
 
     </div>
+
+  </article>
 
 
 
@@ -111,13 +128,9 @@
     <footer class="text-center text-lg-start bg-light text-muted">
       <!-- Section: Social media -->
       <section class="d-flex justify-content-center m-5 p-4 border-bottom">
-        <!-- Left -->
         <div class="me-5 d-none d-lg-block">
           <span> Nos réseaux sociaux pour rester en contact :</span>
         </div>
-        <!-- Left -->
-
-        <!-- Right -->
         <div>
           <a href="" class="me-4 text-reset pl-5">
             <i class="fab fa-facebook-f"></i>
@@ -144,10 +157,11 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <!-- Content -->
               <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3"></i> Groupomania
+                <i class="fas fa-building"></i> Groupomania
               </h6>
               <p>
-                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+                Notre entreprise, spécialisée dans la grande distribution, est en pleine expansion. Nous avons actuellement
+plus de 600 collaborateurs.
               </p>
             </div>
 

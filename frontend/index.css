@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+article {
+    font-style: oblique;
+}
+
 
 .jumbotron {
     background-image: url(images/team.jpg);
@@ -12,11 +16,24 @@ body {
   }
 
 #app img {
-    width: 30%;
-    height: 25%;
+    width: 60%;
+    height: 40%;
 
 }
 
 #app h4 {
     padding-top: 50px;
 }
+
+.post {
+    background-color: rgb(233, 226, 216);
+}
+
+#postedMessage {
+    margin-left: 33%;
+}
+
+.author {
+ font-weight: bold;
+}
+
