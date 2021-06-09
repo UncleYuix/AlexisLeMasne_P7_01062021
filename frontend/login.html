@@ -1,72 +1,138 @@
-
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="frontend/images/icon.png">
-       <!--- CSS basique -->
 
-    <title> Bienvenue chez Groupomania </title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="frontend/images/icon.png">
+  <!--- CSS basique -->
 
-    <link rel="canonical" href="NaN">   <!--- c'est à modifier ambiance P4-->
+  <title> Bienvenue chez Groupomania </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="canonical" href="NaN">
+  <!--- c'est à modifier ambiance P4-->
 
- 
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
-  </head>
+  <!-- vue JS -->
+  <script src="https://unpkg.com/vue@3.0.2"></script>
 
-  <body>
+</head>
 
-
-
-
-    <form class="form-signin container-xl col-9 col-lg-4">
-    
-    
-      <div class="text-center mb-4">
-        <img class="mb-4" src="images/icon-above-font.png" alt="" width="250" height="250">
-        <h1 class="h3 mb-3 font-weight-normal"> Votre Média pour toutes et tous ! </h1>
-        <p>Partager votre quotidien entre collègues, dans une ambiance bienveillante </p>
-      </div>
-
- 
+<body>
 
 
-        <div class="form-label-group mb-5 text-center">
-            <label for="inputEmail"> Votre courriel </label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Jean-Phil@groupomania.fr " required autofocus>
-        
+  <!-- debut de l'app Vue  -->
+
+  <div id="app">
+
+
+
+
+
+    <div v-if="showLogin">
+
+      <form class="form-signin container-xl col-9 col-lg-4">
+
+
+        <div class="text-center mb-4">
+          <img class="mb-4" src="images/icon-above-font.png" alt="" width="250" height="250">
+          <h1 class="h3 mb-3 font-weight-normal"> Votre Média pour toutes et tous ! </h1>
+          <p>Partager votre quotidien entre collègues, dans une ambiance bienveillante </p>
         </div>
 
         <div class="form-label-group mb-5 text-center">
+          <label for="inputEmail"> Votre courriel </label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Jean-Phil@groupomania.fr ">
+
+          <!-- ne pas oublier les  required autofocus -->
+
+
+          <div class="form-label-group mb-5 text-center">
             <label for="inputPassword">Mot de passe </label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Votre Mot de Passe" required>
-        
+            <input type="password" id="inputPassword" class="form-control" placeholder="VotreMotdePasse">
+
+          </div>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter </button>
         </div>
 
-        <div class="checkbox mb-3 col-6">
-            <label>
-            <input type="checkbox" value="remember-me"> Se souvenir de wam !
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter </button>
+      </form>
 
-    </form>
+    </div>
+
+    <div v-if="!showLogin">
+
+      <form class="form-signin container-xl col-9 col-lg-4">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="images/icon-above-font.png" alt="" width="250" height="250">
+          <h1 class="h3 mb-3 font-weight-normal"> Votre Média pour toutes et tous ! </h1>
+          <p>Partager votre quotidien entre collègues, dans une ambiance bienveillante </p>
+        </div>
+
+        <div class="form-label-group mb-2 text-center">
+          <label for="inputEmail"> Votre nom </label>
+          <input type="name" id="inputName" class="form-control" placeholder="Smett ">
+
+        </div>
+
+        <div class="form-label-group mb-2 text-center">
+          <label for="inputEmail"> Votre Prenom </label>
+          <input type="surmane" id="inputSurname" class="form-control" placeholder="Jean-Phillipe " >
+
+        </div>
+
+        <div class="form-label-group mb-2 text-center">
+          <label for="inputEmail"> Votre courriel </label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Jean-Phil@groupomania.fr " >
+
+        </div>
+
+        <div class="form-label-group mb-2 text-center">
+          <label for="inputPassword">Mot de passe </label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Votre Mot de Passe" >
+
+        </div>
+
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire </button>
+
+      </form>
+    </div>
 
     
-    <div class="signin pt-6 text-center"> 
-      <p> Pas encore enregistré sur notre plateforme ?</p>
-      <a href="register.html" class="btn btn-primary btn-lg" role="button" aria-disabled="true">S'inscrire</a>
-     
-      </div>
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2021</p>
+  <div class="signin pt-6 text-center">
+     <p v-show="showLogin"> Pas encore enregistré sur notre plateforme ?</p>
+     <p v-show="!showLogin"> Vous êtes déjà membre ?</p>
+    <button @click='toggleShowLogin' class=" btn btn-primary btn-lg" role="button">
+      <span v-if="showLogin"> S'inscrire ? </span>
+      <span v-else> Se connecter ? </span>
+    </button>
+  </div>
+
+  </div>
 
 
-   <a href="index.html" > On enchaine sur le vrai front ? </a>
-  </body>
+
+
+  </div>
+
+  <!-- fin de l'app  -->
+
+
+
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2021</p>
+
+
+  <a href="index.html"> On enchaine sur le vrai front ? </a>
+
+
+  <script src="app.js"></script>
+
+
+</body>
+
 </html>
