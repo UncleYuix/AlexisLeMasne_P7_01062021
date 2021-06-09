@@ -10,7 +10,10 @@ const app = Vue.createApp({
                 {url:"https://media.giphy.com/media/Af0RkOscO3KSHZTkMl/giphy.gif"},
                 {url: "https://media.giphy.com/media/SuYaHVFzYytuU/giphy.gif"}
             ],
-            messages: ['magnifique, je reconnais Joel surl a photo #je suis peeeeeeeeeeeense puzzle', 'ahah trop rigolo xptdr',  "on est des déglingos", "LoL"],
+            messages: ['magnifique, je reconnais Joel surl a photo #je suis peeeeeeeeeeeense puzzle',
+                         'ahah trop rigolo xptdr', 
+                          "on est des déglingos", "LoL"
+                        ],
         }
     }
 })

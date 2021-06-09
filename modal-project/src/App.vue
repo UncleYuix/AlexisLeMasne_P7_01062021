@@ -1,5 +1,8 @@
 <template>
-<Register/>
+
+<Register>
+  <p> caca </p>
+</Register>
 </template>
 
 

@@ -49,7 +49,7 @@
           </form>
         </div>
 
-        <div v-if="!showLogin" class=SignIn>
+        <div v-if="!showLogin" class="SignIn">
           <form class="form-signin container-xl col-9 col-lg-4">
             <div class="text-center mb-4">
                 <img src="../assets/icon-above-font.png"
