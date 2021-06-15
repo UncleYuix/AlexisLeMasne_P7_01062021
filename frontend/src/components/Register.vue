@@ -42,7 +42,7 @@
                 />
               </div>
 
-              <button class="btn btn-lg btn-primary btn-block" type="submit">
+              <button class="btn btn-lg btn-warning btn-block" type="submit">
                 Se connecter
               </button>
             </div>

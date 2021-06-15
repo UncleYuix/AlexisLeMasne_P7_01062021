@@ -1,7 +1,6 @@
 <template>
 
 <Register>
-  <p> caca </p>
 </Register>
 </template>
 
