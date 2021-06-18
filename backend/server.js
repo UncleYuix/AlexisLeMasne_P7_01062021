@@ -1,49 +1,38 @@
-const http = require("http"); // on utilisera la variante HTTPS lors de la phase de production afin de chiffrer les transmissions
-const app = require("./app"); 
+// Imports
+
+var express = require('express');
+// // const user = require('./models/user'); 
+var bodyParser = require('body-parser');
+var apiRouter = require('./apiRouter').router;
+
+// instancition de mon server
+
+server = express();
 
 
-const normalizePort = (val) => { 
-    const port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        return val;
-    }
-    if (port >= 0) {
-        return port;
-    }
-    return false;
-};
-const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
 
-const errorHandler = (error) => { 
-    if (error.syscall !== "listen") {
-        throw error;
-    }
-    const address = server.address();
-    const bind =
-        typeof address === "string" ? "pipe " + address : "port: " + port;
-    switch (error.code) {
-        case "EACCES":
-            console.error(bind + " requires elevated privileges.");
-            process.exit(1);
-            break;
-        case "EADDRINUSE":
-            console.error(bind + " is already in use.");
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-};
+// configuration de mes routes
 
-const server = http.createServer(app); // Création du serveur qui utilise app //
+server.use(function (req, res, next) {
+    // res.setHeader('Conten-Type','text/html');
+    // res.status(200).send('<h1> Bonjour sur mon back de P7 </h1>')
 
-server.on("error", errorHandler);
-server.on("listening", () => { 
-    const address = server.address();
-    const bind = typeof address === "string" ? "pipe " + address : "port " + port;
-    console.log("Listening on " + bind);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization, HttpHeaders');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+
+    next();
 });
 
-server.listen(port);
+// Bodyparser config
+
+ // server.use(bodyParser.urlencoded(true));   
+server.use(bodyParser.json());
+
+
+server.use('/api/', apiRouter)
+
+server.listen(8080, function (){
+    console.log('serveur en écoute par un mec qui galère un max')
+})
