@@ -20,8 +20,8 @@ module.exports = {
     var title   = req.body.title;
     var content = req.body.content;
 console.log(req.body)
-    if (title == null || content == null) {
-      return res.status(400).json({ 'error': 'missing parameters' });
+    if (!title || !content) {
+      return res.status(400).json({ 'error': 'Missing params' });
     }
 
     if (title.length <= TITLE_LIMIT || content.length <= CONTENT_LIMIT) {

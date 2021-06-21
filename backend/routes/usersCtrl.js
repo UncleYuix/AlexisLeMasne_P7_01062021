@@ -16,9 +16,9 @@ module.exports = {
     var email    = req.body.email;
     var username = req.body.username;
     var password = req.body.password;
-    var bio      = req.body.bio;
+    var name      = req.body.name;
 
-    if (email == null || username == null || password == null) {
+    if (email == null || username == null || name == null || password == null) {
       return res.status(400).json({ 'error': 'missing parameters' });
     }
 
@@ -61,7 +61,7 @@ module.exports = {
           email: email,
           username: username,
           password: bcryptedPassword,
-          bio: bio,
+          name: name,
           isAdmin: 0
         })
         .then(function(newUser) {
@@ -139,7 +139,7 @@ module.exports = {
       return res.status(400).json({ 'error': 'wrong token' });
 
     models.User.findOne({
-      attributes: [ 'id', 'email', 'username', 'bio' ],
+      attributes: [ 'id', 'email', 'username', 'name' ],
       where: { id: userId }
     }).then(function(user) {
       if (user) {
@@ -157,12 +157,12 @@ module.exports = {
     var userId      = jwtUtils.getUserId(headerAuth);
 
     // Params
-    var bio = req.body.bio;
+    var name = req.body.name;
 
     asyncLib.waterfall([
       function(done) {
         models.User.findOne({
-          attributes: ['id', 'bio'],
+          attributes: ['id', 'name'],
           where: { id: userId }
         }).then(function (userFound) {
           done(null, userFound);
@@ -174,7 +174,7 @@ module.exports = {
       function(userFound, done) {
         if(userFound) {
           userFound.update({
-            bio: (bio ? bio : userFound.bio)
+            name: (name ? name : userFound.name)
           }).then(function() {
             done(userFound);
           }).catch(function(err) {
