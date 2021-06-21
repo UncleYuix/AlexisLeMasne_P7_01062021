@@ -3,7 +3,7 @@ var express      = require('express');
 var usersCtrl    = require('./routes/usersCtrl');
 var messagesCtrl = require('./routes/messagesCtrl');
 var likesCtrl    = require('./routes/likesCtrl');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser'); // ça fait quoi ici ce truc ?
 
 // Router
 exports.router = (function() {
@@ -16,8 +16,8 @@ exports.router = (function() {
   apiRouter.route('/users/me/').put(usersCtrl.updateUserProfile);
 
   // Messages routes
-  var urlencodedParser = bodyParser.urlencoded({extended: false}) // new
-  apiRouter.route('/messages/new/').post(urlencodedParser,messagesCtrl.createMessage);
+  // var urlencodedParser = bodyParser.urlencoded({extended: false}) // new
+  apiRouter.route('/messages/new/').post(messagesCtrl.createMessage); // ajouter urlencodedParser avant le messages ?
   apiRouter.route('/messages/').get(messagesCtrl.listMessages);
 
   // Likes

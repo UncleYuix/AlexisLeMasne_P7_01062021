@@ -1,29 +1,33 @@
 const app = Vue.createApp({
-    data() {
-        return {
-            product: 'puzzle',
-            authors: ['Jean Louis David','Jean Claude Killy','Gisèle Ruiz', 'Michel Le Déconneur'],
-            dates: ["22/05/2020", "24/05/2020", "24/07/2020", "30/12/2020"],
-            images: [
-                {url:'images/puzzle.jpg'},
-                {url:'images/team.jpg'},
-                {url:"https://media.giphy.com/media/Af0RkOscO3KSHZTkMl/giphy.gif"},
-                {url: "https://media.giphy.com/media/SuYaHVFzYytuU/giphy.gif"}
-            ],
-            messages: ['magnifique, je reconnais Joel surl a photo #je suis peeeeeeeeeeeense puzzle',
-                         'ahah trop rigolo xptdr', 
-                          "on est des déglingos", "LoL"
-                        ],
-        }
-    }
-})
-
+  data() {
+    return {
+      product: "puzzle",
+      authors: [
+        "Jean Louis David",
+        "Jean Claude Killy",
+        "Gisèle Ruiz",
+        "Michel Le Déconneur",
+      ],
+      dates: ["22/05/2020", "24/05/2020", "24/07/2020", "30/12/2020"],
+      images: [
+        { url: "images/puzzle.jpg" },
+        { url: "images/team.jpg" },
+        { url: "https://media.giphy.com/media/Af0RkOscO3KSHZTkMl/giphy.gif" },
+        { url: "https://media.giphy.com/media/SuYaHVFzYytuU/giphy.gif" },
+      ],
+      messages: [
+        "magnifique, je reconnais Joel surl a photo #je suis peeeeeeeeeeeense puzzle",
+        "ahah trop rigolo xptdr",
+        "on est des déglingos",
+        "LoL",
+      ],
+    };
+  },
+});
 
 // v3 :
 
-
-
-// v1 : 
+// v1 :
 // const app = Vue.createApp({
 //     data() {
 //         return {
