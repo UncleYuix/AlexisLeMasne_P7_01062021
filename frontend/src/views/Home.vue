@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   
     <article id="whatIsTheUse">
@@ -5,11 +6,13 @@
         <div>
           <router-link to="/register">Se connecter</router-link>
         </div>
-       
+  
+
         <div>
-          <router-link to="/content"> le contenu du site que je cacherai ensuite </router-link>
+          <router-link to="/content"> le Contenu du site que je cacherai donc ensuite ! ! ! </router-link>
         </div>
- 
+
+  
     </article>
    <!--- <register /> --->
   
@@ -25,3 +28,4 @@ export default {
 };
 
 </script>
+

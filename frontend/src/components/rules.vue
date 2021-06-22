@@ -43,7 +43,7 @@
           <p>Merci de votre attention sur le sujet</p>
 
           <a
-            href="content"
+            href="./content"
             class="btn btn-primary btn-lg"
             role="button"
             aria-disabled="true"

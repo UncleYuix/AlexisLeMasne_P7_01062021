@@ -37,3 +37,5 @@ const router = createRouter({
   
   export default router;
   
+
+  // à la suite j'aurai donc un autre bloc @import

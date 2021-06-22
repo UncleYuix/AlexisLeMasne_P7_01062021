@@ -1,27 +1,70 @@
+
+
 <template>
   <div class="leContenuQuiDoitLoad">
+
+     <header>
+      <div class="bg-dark">
+        <div class="row">
+          <nav class="col navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand ml-3" href="index.html">
+              <img src="../assets/icon-left-font-monochrome-white.png" width="220" height="150" alt="Site logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav float-right ml-5 mr-1  text-center">
+                <li class="nav-item active">
+                  <a class="nav-link border border-primary ml-5" href=""> Acceuil</a>
+                </li>
+
+                <li class="nav-item active ">
+                  <a class="nav-link border border-primary ml-5" href="">Publication</a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link border border-primary ml-5" href=""> Profil</a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link border border-primary ml-5" href="register/"> Logout </a>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+          <div class="jumbotron text-center">
+          </div>
+
     <div class="row">
       <div class="col-12 text-center font-weight-light xs-Display 3">
-        <!-- <div class="jumbotron text-center" height: 200px;>
-                <img src="../assets/icon-left-font-monochrome-black.png" > 
-           </div> -->
-        <aside>
-          <h1 class="font-weight-light">Groupomania</h1>
-          <h2>
+      
+                <img class="caca" src="../assets/icon-left-font-monochrome-black.png" height="200" > 
+        <aside class="border border-primary">
+          <h1>
             Structurons notre collectif vers un avenir co-construit et
             bienveillant
-          </h2>
-          <h3>Et la bonne année aussi, profitez du 13e mois !</h3>
-          <h4>
+          </h1>
+          <h2>Et la bonne année aussi, profitez du 13e mois !</h2>
+          <h3>
             le forum est soumis a modération, contactez l'administrateur en cas
             problèmes ou situation ne respectant
             <router-link to="/rules"> les règles </router-link>
-          </h4>
+          </h3>
         </aside>
       </div>
     </div>
 
-    <article class="text-center">
+
+    <!-- le contenu chargé par l'API commence là dans l'article--->
+
+    <article class="text-center m-5">
 
       <p>plop</p>
       <p>plop</p>
@@ -32,6 +75,10 @@
       <p>plop</p>
     </article>
 
+
+
+
+
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
       <!-- Section: Social media -->
@@ -41,15 +88,15 @@
         </div>
         <div>
           <a href="" class="me-4 text-reset pl-5">
-            <i class="fab fa-facebook-f"></i> Facebook
+            <i class="fab fa-facebook-f"></i> 
           </a>
           <a href="" class="me-4 text-reset pl-5">
-            <i class="fab fa-twitter"></i> Facebook
+            <i class="fab fa-twitter"></i> 
           </a>
           <a href="" class="me-4 text-reset pl-5">
-            <i class="fab fa-instagram"></i> Facebook
+            <i class="fab fa-instagram"></i> 
           </a>
-          <a href="" class="me-4 text-reset pl-5"> Facebook
+          <a href="" class="me-4 text-reset pl-5"> 
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
@@ -72,6 +119,8 @@
                 collaborateurs.
               </p>
             </div>
+
+          
 
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -107,9 +156,19 @@
 </template>
 
 
+
+
+
 <style>
 body {
     align-items: center;
-    margin: 5%
+    margin: 2%
 }
+
+.jumbotron {
+    background-image: url(../assets/equipe-projet-creation-dentreprise.png);
+    height: 250px;
+    opacity: 0.4;
+    background-repeat: repeat;
+  }
 </style>
