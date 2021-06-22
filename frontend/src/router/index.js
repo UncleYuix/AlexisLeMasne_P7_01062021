@@ -1,41 +1,36 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/Home.vue";
-
 
 const routes = [
-    {
-      path: "/",
-      name: "Home",
-      component: Home,
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: () =>
-        import("../components/register.vue"),
-    },
+  {
+    path: "/",
+    name: "Register",
+    component: () => import("../views/Register.vue"),
+  },
+  // {
+  //   path: "/register",
+  //   name: "register",
+  //   component: () =>
+  //     import("../components/register.vue"),
+  // },
 
-    {
-      path: "/content",
-      name: "content",
-      component: () =>
-      import("../components/content.vue")
-    },
+  {
+    path: "/Content",
+    name: "Content",
+    component: () => import("../views/Content.vue"),
+  },
 
-    {
-      path: "/rules",
-      name: "rules",
-      component: () =>
-      import("../components/rules.vue")
-    }
-]
+  {
+    path: "/rules",
+    name: "rules",
+    component: () => import("../components/rules.vue"),
+  },
+
+];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
-  });
-  
-  export default router;
-  
+  history: createWebHashHistory(),
+  routes,
+});
 
-  // à la suite j'aurai donc un autre bloc @import
+export default router;
+

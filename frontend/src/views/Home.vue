@@ -24,7 +24,7 @@ import register from "../components/register"
 
 export default {
   name: "App",
-  views: { register },
+  component: { register },
 };
 
 </script>
