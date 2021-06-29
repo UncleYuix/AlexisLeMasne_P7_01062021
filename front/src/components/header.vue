@@ -45,7 +45,7 @@
                 <li class="nav-item active">
                   <a
                     class="nav-link border border-primary ml-5"
-                    href="register/"
+                    href="Register"
                   >
                     Logout
                   </a>

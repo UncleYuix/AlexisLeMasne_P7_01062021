@@ -29,6 +29,11 @@ const routes = [
     name: "rules",
     component: () => import("../components/rules.vue"),
   },
+  {
+    path: "/addMessage",
+    name: "addMessage",
+    component: () => import("../components/addMessage.vue"),
+  }
 
 ];
 

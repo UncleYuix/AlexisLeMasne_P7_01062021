@@ -5,15 +5,11 @@
 
 
     <article class="text-center m-5">
-      <p>plop</p>
-      <p>plop</p>
-      <p>plop</p>
-   
-
           <!-- le contenu chargé par l'API commence là dans l'article--->
 
 
       <div id="app">
+        <router-link to="/addMessage"> Ajouter un message </router-link>
         <button v-on:click="updatePost()"> Si vous voulez voir le contenu ... cliquez ici </button>
         <ul>
           <li v-for="message in messages" :key="message">
@@ -85,8 +81,8 @@ body {
 }
 
 #app button {
- color: red;
- background-color: rgb(55, 114, 84);
+ color: rgb(114, 85, 85);
+ background-color: rgb(141, 167, 153);
  border-radius: 30px;
  height: 50px;
 }
