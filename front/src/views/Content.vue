@@ -14,21 +14,20 @@
 
 
       <div id="app">
-        <button v-on:click="updatePost()"> Voir le contenu </button>
+        <button v-on:click="updatePost()"> Si vous voulez voir le contenu ... cliquez ici </button>
         <ul>
-          <li v-for="film in films" :key="film">
+          <li v-for="message in messages" :key="message">
             <div class="col-8 text-center m-5" id="post-box">
               <div class="user border border-danger" id="author-box">
-                posté par : {{ film.director }}
-              </div>
-              <div class="id border border-success" id="to-define-box">
-                à l'heure de : {{ film.release_date }}
+               <p> posté le  : {{ message.createdAt }} par  id: {{ message.id }} </p>
               </div>
               <div class="title border border-info" id="message-box">
-                says {{ film.description }}
+                <p class="font-weight-bold"> {{ message.title }} </p> 
+
+              <p class="font-italic"> son message est : {{ message.content }} </p> 
               </div>
-      <div class="title border border-info" id="original-box">
-                son message est : {{ film.original_title  }}
+                   <div class="title border border-info" id="original-box">
+                {{ message.likes }}  <i class="far fa-thumbs-up"></i>
               </div>
             </div>
           </li>
@@ -55,10 +54,10 @@ export default {
   },
      name: "App",
       data(){
- return { films: [] }},
+ return { messages: [] }},
        methods: {
          updatePost() {
-axios.get('https://ghibliapi.herokuapp.com/films').then(response => this.films = response.data).catch(error => error );
+axios.get('http://localhost:8080/api/messages/').then(response => this.messages = response.data).catch(error => error );
        }
        
      }
@@ -84,8 +83,14 @@ body {
 #app ul {
  list-style-type: none
 }
-post-box {
+
+#app button {
+ color: red;
+ background-color: rgb(55, 114, 84);
+ border-radius: 30px;
+ height: 50px;
 }
+
 #author-box, #to-define-box, #message-box, #original-box {
   padding: 10px;
 border-radius: 98px 98px 98px 98px;

@@ -2,7 +2,11 @@
   <div class="backdrop">
     <div class="Register">
       <div v-if="showLogin" class="Login">
-        <form class="form-signin container-xl col-9 col-lg-4">
+        <form
+          method="post"
+          @submit.prevent="buttonLogin"
+          class="form-signin container-xl col-9 col-lg-4"
+        >
           <div class="text-center mb-4">
             <img
               src="../assets/icon-above-font.png"
@@ -48,6 +52,9 @@
             </button>
           </div>
         </form>
+        <div class="error" v-if="error">
+          {{ error.error }}
+        </div>
       </div>
 
       <div v-if="!showLogin" class="SignIn">
@@ -75,7 +82,7 @@
               type="name"
               id="inputName"
               class="form-control"
-              placeholder="Smett "
+              placeholder="Smett"
               v-model="name"
             />
           </div>
@@ -86,8 +93,8 @@
               type="firstName"
               id="inputfirstName"
               class="form-control"
-              placeholder="Jean-Phillipe "
-              v-model="firstName"
+              placeholder="Jean-Phillipe"
+              v-model="username"
             />
           </div>
 
@@ -97,7 +104,7 @@
               type="email"
               id="inputEmail"
               class="form-control"
-              placeholder="Jean-Phil@groupomania.fr "
+              placeholder="Jean-Phil@groupomania.fr"
               v-model="email"
             />
           </div>
@@ -113,7 +120,11 @@
             />
           </div>
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">
+          <button
+            type="submit"
+            @click.prevent="buttonRegister"
+            class="btn btn-lg btn-primary btn-block"
+          >
             S'inscrire
           </button>
         </form>
@@ -136,21 +147,59 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Register",
 
   data() {
     return {
       name: "",
-      firstName: "",
+      username: "",
       email: "",
       password: "",
+      token: "",
+      UserId: "",
       showLogin: true,
     };
   },
   methods: {
     toggleShowLogin() {
       this.showLogin = !this.showLogin;
+    },
+    async buttonRegister() {
+      const data = {
+        email: this.email,
+        name: this.name,
+        username: this.username,
+        password: this.password,
+      };
+      await axios
+        .post("http://localhost:8080/api/users/register/", data)
+        .then((res) => {
+          console.log(res);
+          this.$router.push("/Register");
+        })
+        .catch((error) => {
+          this.error = error.response.data;
+          console.log(error.response.data);
+        });
+    },
+    async buttonLogin() {
+      await axios
+        .post("http://localhost:8080/api/users/login", {
+          email: this.email,
+          password: this.password,
+        })
+        .then((res) => {
+          {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("id", res.data.userId);
+          }
+          this.$router.push("/Content");
+        })
+        .catch((error) => {
+          this.error = error.response.data;
+        });
     },
   },
 };
