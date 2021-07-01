@@ -13,14 +13,16 @@ module.exports = {
 
   createMessage: function(req, res) {
     // Getting auth header
-    var headerAuth  = req.headers['authorization'];
-    var userId      = jwtUtils.getUserId(headerAuth);
+    let headerAuth  = req.headers['authorization'];
+    let userId      = jwtUtils.getUserId(headerAuth);
 
     // Params
-    var title   = req.body.title;
-    var content = req.body.content;
-console.log(req.body)
-    if (!title || !content) {
+    let title   = req.body.title;
+    let content = req.body.content;
+    console.log(req.body.title);
+    console.log(req.body.content); 
+console.log(req.body) 
+    if (title == null || content == null ) {
       return res.status(400).json({ 'error': 'Missing params' });
     }
 
