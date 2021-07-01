@@ -24,17 +24,25 @@
           </button>
           <div id="navbarContent" class="collapse navbar-collapse">
             <ul class="navbar-nav float-right ml-5 mr-1 text-center">
-
-
               <li class="nav-item active">
-                <a class="nav-link border border-info ml-5" href=""
-                  > Mes Publications</a>                
-                      <router-link to="myPublication"> Mes publications </router-link>
+                <a class="nav-link border border-info ml-5" href="">
+                  Mes Publications</a
+                >
+                <router-link to="myPublication"> Mes publications </router-link>
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link border border-info ml-5" href="myAccount">   Mon Compte </a>
-                 <router-link to="myAccount"> Mon compte </router-link>
+                <a class="nav-link border border-info ml-5" href="">
+                  Poster un message sans modale </a
+                >
+                <router-link to="addMessage"> Poster un message sans Modale  </router-link>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link border border-info ml-5" href="myAccount">
+                  Mon Compte
+                </a>
+                <router-link to="myAccount"> Mon compte </router-link>
               </li>
 
               <li class="nav-item active">
@@ -54,7 +62,7 @@
 
     <div class="jumbotron text-center"></div>
 
-    <div class="row">  
+    <div class="row">
       <!-- c'est là que ça chie dans les mediaQ -->
       <div class="col-12 text-center font-weight-light xs-Display 3">
         <!-- <img
@@ -92,9 +100,8 @@ export default {
 </script>
 
 <style scoped>
-
 header {
-  width:99%;
+  width: 99%;
 }
 .logo {
   margin: 25px;

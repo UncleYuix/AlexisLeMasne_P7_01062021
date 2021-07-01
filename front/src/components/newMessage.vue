@@ -1,6 +1,6 @@
 <template>
 
-<!-- merci à https://www.youtube.com/watch?v=LrI3MwOQzEs&ab_channel=LeDesignerduWeb -->
+<!-- merci à https://www.youtube.com/watch?v=LrI3MwOQzEs&ab_channel=LeDesignerduWeb  IL S'AGIT DE MON MODALE CELUI LA-->
 
 
   <div class="bloc_modale" v-if="revele">
@@ -32,7 +32,7 @@
           />
         </div>
         <div>
-        <label for="File">(Le fichier n'est pas obligatoire)</label><br />
+        <label for="File">(Le fichier n'est pas pas obligatoire)</label><br />
         <input type="file" ref="file" @change="selectFile()" />
       </div>
         <button type="submit"  @click.prevent="buttonAddMessage" >Envoyer</button>

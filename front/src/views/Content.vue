@@ -34,11 +34,14 @@
               </div>
               <div class="title border border-info" id="message-box">
                 <p class="font-weight-bold">{{ message.title }}</p>
-
+                <p class="font-italic">{{ message.attachment }}</p>
                 <p class="font-italic">{{ message.content }}</p>
               </div>
               <div class="title border border-info" id="like-box">
-                {{ message.likes }} <i class="far fa-thumbs-up"></i>
+                {{ message.likes }}
+                <button v-on:click="Liked(message.id)">
+                  <i class="far fa-thumbs-up"></i>
+                </button>
                 <div class="wrapper">
                   <div id="merci" class="hide">
                     Merci pour le vote
@@ -68,12 +71,12 @@ export default {
   components: {
     "my-header": header,
     "my-footer": footer,
-    "newMessage": newMessage,
+    newMessage: newMessage,
   },
   name: "App",
   data() {
-    return { messages: [] }
-   // { revele: true }; remetre la virgule au dessus  
+    return { messages: [] };
+    // { revele: true }; remetre la virgule au dessus
   },
   methods: {
     updatePost() {
@@ -82,12 +85,19 @@ export default {
         .then((response) => (this.messages = response.data))
         .catch((error) => error);
     },
-      toggleModale: function()
-      {
-      this.revele = !this.revele },
-  }
-}
-
+    toggleModale: function() {
+      this.revele = !this.revele;
+    },
+    Liked(id) {
+      alert("hop le like !");
+      console.warn(id);
+      let token = localStorage.getItem("token");
+      axios.post("http://localhost:8080/api/messages/" + id + "/vote/like", {
+        headers: { Authorization: "Bearer " + token },
+      });
+    },
+  },
+};
 </script>
 
 <style>

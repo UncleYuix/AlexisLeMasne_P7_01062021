@@ -5,14 +5,14 @@
     style="
     background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/90.jpg');
     height: 100vh;
-    opacity: 0.7;
+   
   "
   >
     <h1>Profil de votre compte</h1>
     <div class="actualProfil border border-white m-5">
       <div>
         <u> E-mail : </u>
-        <p>users.email</p>
+        <p> mon-email </p>
 
         <!-- {{ users.email }}
        {{ users.name }} {{ users.username }} -->
@@ -42,7 +42,7 @@
           type="firstname"
           id="firstname"
           placeholder="Prénom"
-          v-model="firstname"
+          v-model="username"
         />
       </div>
       <button type="submit" @click.prevent="updateProfile">Modifier</button>
@@ -99,6 +99,12 @@ export default {
         ),
       });
     },
+    updateProfile() {
+
+    },
+    deleteProfile(){
+
+    }
   },
   mounted() {
     this.loadProfile();

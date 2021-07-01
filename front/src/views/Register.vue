@@ -181,7 +181,7 @@ export default {
         .post("http://localhost:8080/api/users/register/", data)
         .then((res) => {
           console.log(res);
-          this.$router.push("/Register");
+          this.$router.push("Register");
         })
         .catch((error) => {
           this.error = error.response.data;

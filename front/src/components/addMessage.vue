@@ -1,15 +1,14 @@
 <template>
 
-<!-- il s'agit du bloc avec le modale, chouré sur le premier fichier vue qui était newMessage -->
+<!-- ceci n'est pas le Modale -->
 
 
-  <div class="bloc_modale">
-    <div class="overlay">
-    <div class="modale card">
+  <div class="posterUnMessage">
+    <div class="card">
       <div class="btn-modale btn btn danger"> </div>
       
       <form method="post" @submit.prevent="buttonAddMessage">
-        <h2>Poster un message</h2>
+        <h2>Poster le message</h2>
         <div>
           <label for="title"> </label>
           <input
@@ -42,7 +41,7 @@
       </form>
     </div>
   </div>
-  </div>
+
 </template>
 
 <style>
@@ -55,7 +54,10 @@
 </style>
 
 <script>
+
+
 import axios from "axios";
+
 
 export default {
   name: "addMessage",
@@ -68,15 +70,15 @@ export default {
     };
   },
   methods: {
+
     buttonAddMessage() {
       let token = localStorage.getItem("token");
+          let megaHeaders = {
+  'Content-Type': 'application/json',
+  'Authorization': "Bearer " + token
+};
       const data = new FormData();
-      //   if (this.file !== null) {
-      //     data.append("title", this.title);
-      //     data.append("content", this.content);
-      //     data.append("image", this.file, this.file.name);
-      //   } else
-
+ 
       if (this.title !== null) {
         data.append("title", this.title);
         data.append("content", this.content);
@@ -84,7 +86,8 @@ export default {
 
       axios
         .post("http://localhost:8080/api/messages/new/", data, {
-          headers: { Authorization: "Bearer" + token },
+          headers: megaHeaders
+          // { Authorization: "Bearer " + token },
           //    + {Content-Type: application/json}
         })
         .then(() => {
@@ -96,9 +99,6 @@ export default {
           this.error = error.response.data;
         });
     },
-    // selectFile() {
-    //   this.file = this.$refs.file.files[0];
-    // },
   },
 };
 </script>
