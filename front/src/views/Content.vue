@@ -2,28 +2,48 @@
   <div class="leContenuQuiDoitLoad">
     <my-header> </my-header>
 
-
-
     <article class="text-center m-5">
-          <!-- le contenu chargé par l'API commence là dans l'article--->
-
+      <!-- le contenu chargé par l'API commence là dans l'article--->
 
       <div id="app">
-        <router-link to="/addMessage"> Ajouter un message </router-link>
-        <button v-on:click="updatePost()"> Si vous voulez voir le contenu ... cliquez ici </button>
+        <newMessage
+          v-bind:revele="revele"
+          v-bind:toggleModale="toggleModale"
+        ></newMessage>
+        <div v-on:click="toggleModale" class="btn btn-success pt-5 mr-5">
+          Poster un message !
+        </div>
+
+        <!-- <router-link to="/addMessage"> Ajouter un message </router-link>
+        <a href="..\components\addMessage.vue" class="afficher" role="button">
+          Poster un message sur notre mur !
+        </a> -->
+
+        <button v-on:click="updatePost()" class="afficher">
+          Afficher le flux de la communauté !
+        </button>
         <ul>
           <li v-for="message in messages" :key="message">
-            <div class="col-8 text-center m-5" id="post-box">
+            <div class="col-10 m-5" id="post-box">
               <div class="user border border-danger" id="author-box">
-               <p> posté le  : {{ message.createdAt }} par  id: {{ message.id }} </p>
+                <p>
+                  <i class="fas fa-portrait"></i> Post par id:
+                  {{ message.id }} à la date du :
+                  {{ message.createdAt }}
+                </p>
               </div>
               <div class="title border border-info" id="message-box">
-                <p class="font-weight-bold"> {{ message.title }} </p> 
+                <p class="font-weight-bold">{{ message.title }}</p>
 
-              <p class="font-italic"> son message est : {{ message.content }} </p> 
+                <p class="font-italic">{{ message.content }}</p>
               </div>
-                   <div class="title border border-info" id="original-box">
-                {{ message.likes }}  <i class="far fa-thumbs-up"></i>
+              <div class="title border border-info" id="like-box">
+                {{ message.likes }} <i class="far fa-thumbs-up"></i>
+                <div class="wrapper">
+                  <div id="merci" class="hide">
+                    Merci pour le vote
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -35,38 +55,44 @@
   </div>
 </template>
 
-
-
-
 <script>
+import newMessage from "../components/newMessage";
 import header from "../components/header";
 import footer from "../components/footer";
- import axios from 'axios'; // on le tente
+import axios from "axios";
+
+// let button = document.querySelector('#button');
+// let merci = document.querySelector('#merci');
 
 export default {
   components: {
     "my-header": header,
     "my-footer": footer,
+    "newMessage": newMessage,
   },
-     name: "App",
-      data(){
- return { messages: [] }},
-       methods: {
-         updatePost() {
-axios.get('http://localhost:8080/api/messages/').then(response => this.messages = response.data).catch(error => error );
-       }
-       
-     }
-   };
+  name: "App",
+  data() {
+    return { messages: [] }
+   // { revele: true }; remetre la virgule au dessus  
+  },
+  methods: {
+    updatePost() {
+      axios
+        .get("http://localhost:8080/api/messages/")
+        .then((response) => (this.messages = response.data))
+        .catch((error) => error);
+    },
+      toggleModale: function()
+      {
+      this.revele = !this.revele },
+  }
+}
 
 </script>
-
-
 
 <style>
 body {
   align-items: center;
-  margin: 2%;
 }
 
 .jumbotron {
@@ -77,29 +103,53 @@ body {
 }
 
 #app ul {
- list-style-type: none
+  list-style-type: none;
 }
 
-#app button {
- color: rgb(114, 85, 85);
- background-color: rgb(141, 167, 153);
- border-radius: 30px;
- height: 50px;
+#app .afficher {
+  color: rgb(114, 85, 85);
+  background-color: rgb(211, 214, 213);
+  border-radius: 30px;
+  height: 150px;
 }
 
-#author-box, #to-define-box, #message-box, #original-box {
-  padding: 10px;
-border-radius: 98px 98px 98px 98px;
--webkit-border-radius: 98px 98px 98px 98px;
--moz-border-radius: 98px 98px 98px 98px;
-background: #9be6e6;
-border: 10px solid #ff6550;
+#app .afficher:hover {
+  background-color: rgb(224, 194, 194);
+  color: rgb(202, 94, 94);
+}
+
+#post-box {
+  border: 5px solid rgb(70, 58, 58);
+  border-left: dashed rgb(70, 53, 53);
+  border-right: dashed rgb(70, 53, 53);
+}
+
+#author-box {
+  background-color: rgb(238, 218, 218);
+}
+
+#like-box {
+  background-color: rgb(211, 203, 203);
 }
 
 #message-box {
-  background-color: silver;
+  background-color: whitesmoke;
 }
-#original-box {
-  background-color: rgb(228, 170, 170);
+
+.hide {
+  visibility: hidden;
+}
+.fa-thumbs-up {
+  color: red;
+}
+
+.fa-portrait {
+  color: rgb(20, 119, 58);
+  width: 50px;
+  padding-top: 15px;
+}
+
+.afficher {
+  font-family: cursive;
 }
 </style>

@@ -33,6 +33,18 @@ const routes = [
     path: "/addMessage",
     name: "addMessage",
     component: () => import("../components/addMessage.vue"),
+  },
+
+  {
+    path: "/myAccount",
+    name: "myAccount",
+    component: () => import("../components/myAccount.vue"),
+  },
+
+  {
+    path: "/myPublication",
+    name: "myPublication",
+    component: () => import("../components/myPublication.vue"),
   }
 
 ];

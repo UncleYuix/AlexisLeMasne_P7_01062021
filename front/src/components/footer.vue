@@ -7,16 +7,16 @@
           <span> Nos réseaux sociaux pour rester en contact :</span>
         </div>
         <div>
-          <a href="" class="me-4 text-reset pl-5">
+          <a href="https://www.facebook.com" class="me-4 text-reset pl-5">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="" class="me-4 text-reset pl-5">
+          <a href="https://www.twitter.com" class="me-4 text-reset pl-5">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="" class="me-4 text-reset pl-5">
+          <a href="https://www.https://www.instagram.com/?hl=fr" class="me-4 text-reset pl-5">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="" class="me-4 text-reset pl-5">
+          <a href="https://www.linkedin.com" class="me-4 text-reset pl-5">
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
@@ -71,3 +71,4 @@
     </footer>
     <!-- Footer -->
 </template>
+

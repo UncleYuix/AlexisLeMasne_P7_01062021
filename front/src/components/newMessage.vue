@@ -1,14 +1,14 @@
 <template>
 
-<!-- il s'agit du bloc avec le modale, chouré sur le premier fichier vue qui était newMessage -->
+<!-- merci à https://www.youtube.com/watch?v=LrI3MwOQzEs&ab_channel=LeDesignerduWeb -->
 
 
-  <div class="bloc_modale">
-    <div class="overlay">
-    <div class="modale card">
-      <div class="btn-modale btn btn danger"> </div>
-      
-      <form method="post" @submit.prevent="buttonAddMessage">
+  <div class="bloc_modale" v-if="revele">
+    <div class="overlay">  
+         <!-- v-on:click="toggleModale" -->
+      <div class="modale card">
+        <div v-on:click="toggleModale" class="btn-modale btn btn-danger">X</div>
+              <form method="post" @submit.prevent="buttonAddMessage">
         <h2>Poster un message</h2>
         <div>
           <label for="title"> </label>
@@ -31,35 +31,26 @@
             v-model="content"
           />
         </div>
-        <!-- <div>
-        <label for="File">(Facultatif)</label><br />
+        <div>
+        <label for="File">(Le fichier n'est pas obligatoire)</label><br />
         <input type="file" ref="file" @change="selectFile()" />
-      </div> -->
-        <button type="submit" @click.prevent="buttonAddMessage">Envoyer</button>
+      </div>
+        <button type="submit"  @click.prevent="buttonAddMessage" >Envoyer</button>
         <div class="error" v-if="error">
           {{ error.error }}
         </div>
       </form>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
-<style>
-.add {
-  justify-content: center;
-  width: 50%;
-  height: 35%;
-  background-color: rgb(245, 207, 174);
-}
-</style>
-
 <script>
 import axios from "axios";
-
 export default {
-  name: "addMessage",
-  data() {
+  name: "newMessage",
+  props: ['revele', 'toggleModale'],
+   data() {
     return {
       title: "",
       content: "",
@@ -101,4 +92,41 @@ export default {
     // },
   },
 };
+
 </script>
+
+<style scoped>
+.bloc-modale {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modale {
+  background: #f1f1f1;
+  color: #333;
+  padding: 50px;
+  position: fixed;
+  top: 40%;
+  right: 30%;
+}
+
+.btn-modale {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+</style>

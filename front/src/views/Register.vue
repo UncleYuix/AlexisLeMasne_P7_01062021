@@ -1,5 +1,9 @@
 <template>
-  <div class="backdrop">
+  <div id="backdrop" class="bg-image"
+    style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+    height: 100vh;
+  ">
     <div class="Register">
       <div v-if="showLogin" class="Login">
         <form

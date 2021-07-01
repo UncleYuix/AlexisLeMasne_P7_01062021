@@ -42,14 +42,12 @@
         <div class="rules pt-6 mb-5text-center">
           <p>Merci de votre attention sur le sujet</p>
 
-          <a
-            href="./content"
-            class="btn btn-primary btn-lg"
-            role="button"
-            aria-disabled="true"
-          >
-            Retour à l'accueil</a
-          >
+<router-link to="Content"  class="btn btn-primary btn-lg"> Accueil </router-link>
+
+
+
+
+
         </div>
       </div>
     </article>
