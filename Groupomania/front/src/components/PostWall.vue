@@ -1,7 +1,7 @@
 <!-- Seulement pour les posts sans commentaires (genre dans le fil d'actu) -->
 <template> 
-    <div class="text-light d-flex flex-column mx-auto mb-3 py-3 px-4 w-75 border border-dark m-3 bg-info4">
-      <div class="py-3 d-flex justify-content-between align-items-center border border-dark p-3 m-2 bg-info2">
+    <div class="text-light d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-danger m-3 bg-info4">
+      <div class="py-3 d-flex justify-content-between align-items-center border border-warning p-3 m-2 bg-info2">
         <h3>{{ title }}</h3>
 
         <div class="d-flex flex-column">
@@ -31,12 +31,12 @@
       <div class="d-flex flex-row justify-content-between py-2 align-items-center bg-info3"> 
 
         <div class="mr-auto d-flex flex-column pr-3">
-          <div class="d-flex flex-row align-items-center border border-info pr-2">
+          <div class="d-flex flex-row align-items-center border border-warning pr-2">
             <img src="@/assets/Like-2-icon.png" alt="Pouce levé" class="pouceImg" @click="addLike"/> 
             <p class="ml-1">{{ likes }}</p>            
           </div>
 
-          <div class="d-flex flex-row align-items-center border border-info pr-2">
+          <div class="d-flex flex-row align-items-center border border-warning pr-2">
             <img src="@/assets/Unlike-2-icon.png" alt="Pouce baissé" class="pouceImg" @click="addDislike"/>
             <p class="ml-1">{{ dislikes }}</p>  
           </div>
@@ -47,7 +47,7 @@
         </p>
 
         <div class="ml-auto d-flex flex-column text-right low-font-size">
-        <p class="mr-5 border border-info p-1">   <img src="@/assets/info--v3.png" alt="Pouce baissé" class="pouceImg">  Cliquez l'image pour réagir </p>
+        <p class="mr-5 border border-warning p-1">   <img  @click="Wrong" src="@/assets/info--v3.png" alt="Pouce baissé" class="pouceImg">  Cliquez l'image pour réagir </p>
         </div>
 
       </div>
@@ -143,6 +143,9 @@ export default {
         })
         .catch(error => this.message=error)
     },
+    Wrong() {
+  alert("j'avais bien spécifié l'IMAGE pas l'icône.  - le Webmaster");
+},
   }
 };
 </script>

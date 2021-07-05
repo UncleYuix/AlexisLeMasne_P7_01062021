@@ -9,24 +9,27 @@
     </div>
 
     <div class="d-flex col-4 justify-content-center align-items-center">
-      <p class="text-dark" id="name"> Bonne navigation  {{ fullName }} ! </p>
+      <p class="text-warning" id="name"> Bonne navigation  {{ fullName }} ! </p>
     </div>
 
     <!-- L'avatar + upload à droite pour aller sur son compte ou createpost -->
     <div id="rightSide" class="d-flex flex-row align-items-center justify-content-end col-4">
              <router-link to="/rules" >
-        <button class="my-auto btn-red p-1">         
+        <button class="my-auto btn-warning p-1 m-2">         
            Règles 
         </button>
       </router-link>
          <router-link to="/upload" >
-        <button class="my-auto btn-red p-1">         
-          + Publier 
+        <button class="my-auto btn-warning p-1 m-2">         
+           Publier 
         </button>
       </router-link>
-      <router-link to="/settings" class="ml-4">
-        <img src="@/assets/icon-account.png" />
+        <router-link to="/settings" >
+        <button class="my-auto btn-warning p-1 m-2">         
+          Profil  
+        </button>
       </router-link>
+      
       
 
     </div>

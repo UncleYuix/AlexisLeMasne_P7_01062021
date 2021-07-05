@@ -34,10 +34,10 @@
                   @change="selectImg($event)"/>
         </form>
 
-        <div v-if="messageError"
-             class='text-danger h3 my-4'>
-          Merci de choisir une image
-        </div>
+        <!-- <div v-if="messageError"
+             class='text-danger h4 my-4'>
+         Choix d'image
+        </div> -->
 
         <button class="btn btn-dark"
                 @click="updatePost"
@@ -46,7 +46,7 @@
         </button>
 
         <div v-if="messageOk">
-          <h3 class="font-weight-bold h2 mb-4 text-success">
+          <h3 class="font-weight-bold h2 mb-4 text-white">
             {{ messageOk }}
           </h3>
 
@@ -55,7 +55,7 @@
                   :class="btnClass"
                   to="/posts"
                   type="button">
-            Back to posts
+            Retour à l'accueil
           </router-link>
 
           <div class="mt-4">

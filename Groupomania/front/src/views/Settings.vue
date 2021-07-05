@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-darker big-height pb-5">
+  <div class="big-height pb-5">
     <Header/>
 
-    <div class="border border-light text-light container">
+    <div class="text-light container bg-dark">
       <div class="row">
 
 <!-- Partie gauche de la vue account settings -->
@@ -13,62 +13,62 @@
         <div class="col-9 p-3 d-flex flex-column">
           <!-- Le titre -->
           <div class="w-100">
-            <h2 class="mr-auto"><u>My account :</u></h2>
+            <h2 class="mr-auto"><u>Mon compte :</u></h2>
             <hr/>
           </div>
 
           <!-- Tout ce qui est relatif à la modification de données personnelles -->
           <div class="right-side">
             <form class="form-user">
-              <p>Your first name:</p>
+              <p> Votre Prenom:</p>
               <p><span>{{ userFirstName }}</span></p>
               <FormInputSettings idLinked="FirstName" 
                                 v-model="firstName"
-                                placeholder="Your new first name">
+                                placeholder="Votre nouveau prenom">
 
               </FormInputSettings>
 
-              <p>Your last name:</p>
+              <p> Votre nom:</p>
               <p><span>{{ userLastName }}</span></p>
               <FormInputSettings idLinked="LastName" 
                                 v-model="lastName"
-                                placeholder="Your new last name">
+                                placeholder="Votre nouveau nom">
               </FormInputSettings>
 
-              <p>Your email:</p>
+              <p>Votre email:</p>
               <p><span>{{ userEmail }}</span></p>
               <FormInputSettings idLinked="Email" 
                                 v-model="email"
-                                placeholder="Your new email"
+                                placeholder="votre nouvel email"
                                 patternLinked="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
               </FormInputSettings>
 
-              <p>Your password:</p>   
+              <p>Votre mot de passe:</p>   
               <FormInputSettings idLinked="Password" 
                                 v-model="password"
-                                placeholder="Your new password"
+                                placeholder="Votre nouveau password"
                                 required
                                 patternLinked="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
               </FormInputSettings>
  
               <FormInputSettings idLinked="Password2" 
                                 v-model="password2"
-                                placeholder="Confirm your new password"
+                                placeholder="Confirmation du password"
                                 required>
               </FormInputSettings>
             </form>
 
             <div class="m-auto">
               <div class="d-flex flex-column align-items-center">
-                <label for="confirmUpdate">Your actual password to confirm</label>
+                <label for="confirmUpdate"> confirmation password </label>
                 <input class="mb-2" 
-                       placeholder="Your password" 
+                       placeholder="Votre password" 
                        required 
                        v-model="actualPassword"
                        type="password"/>
-                <button class="btn btn-red mb-3 mx-auto"
+                <button class="btn btn-info mb-3 mx-auto"
                         @click="uploadUser">
-                  Save
+                  Confirmer
                 </button>
               </div>
 
@@ -88,9 +88,9 @@
           <hr/>
           <div class="mx-auto my-2">
             <button v-if="messageDelete===''"
-                    class="btn btn-red"
+                    class="btn btn-info"
                     @click="deleteUser">
-              Delete my account
+              Supprimer mon compte
             </button>
 
             <p v-if="messageDelete!==''"
@@ -144,13 +144,13 @@ export default {
       this.message= ""
       this.messageOk= ""
       if (this.actualPassword === "") {
-        this.message= "Enter your actual/old password to save changes"
+        this.message= "Entrez votre nouveau mot de passe"
       }
       if (this.firstName==="" && this.lastName==="" && this.email==="" && this.password==="" && this.password2==="") {
         this.message= "No change detected!"
       }
       if (this.password !== this.password2) {
-          this.message = "Please match your new password"
+          this.message = "Indiquez le password nouveau "
         }
       else {
         if (this.firstName==="") this.firstName= this.userFirstName
@@ -178,7 +178,7 @@ export default {
                   this.userFirstName= response.data.user[0].firstName,
                   this.userLastName= response.data.user[0].lastName,
                   this.userEmail= response.data.user[0].email,
-                  this.messageOk= "Change done successfully!",
+                  this.messageOk= "Changement effectué!",
                   this.password="",
                   localStorage.setItem('name', this.firstName + '_' + this.lastName)
                 })
@@ -188,7 +188,7 @@ export default {
             })
         })
         .catch(() => {
-          this.message= "Actual password wrong"
+          this.message= "Password erroné"
         })
       }
     },
@@ -211,7 +211,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$base-color : rgb(253,45,1);
+
 
 h2 {
   font-size: 20px;
@@ -235,7 +235,7 @@ p {
 }
 
 span {
-  color: $base-color;
+  color: greenyellow;
   font-weight: 600;
 }
 

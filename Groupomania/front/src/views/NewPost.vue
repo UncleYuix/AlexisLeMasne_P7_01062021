@@ -1,21 +1,21 @@
 <template>
-  <div class="bg-darker pb-5 big-height">
+  <div class="pb-5 big-height">
     <Header/>
-
-    <div class="container">
+<div class="backNewPost bg-info3">
+    <div class="container pt-5 pb-5 bg-info4">
       <div class="row">
         <div :class="borderClass">
           <form @submit.prevent="createPost">
-            <h2 :class="titleClass"><u>New Post</u></h2>
+            <h2 :class="titleClass"><u>Nouveau Post</u></h2>
 
             <div class="mb-4 d-flex flex-column px-3">
               <div class="text-left">
-                <label id="titleText" for="Title">Post title:</label>
+                <label id="titleText" for="Title"> Titre de la publication:</label>
                 <FormInput idLinked="Title" v-model="title"></FormInput>
               </div>
 
               <form class="text-left"  enctype="multipart/form-data">
-                <label for="imgInput">Post image:</label><br/>
+                <label for="imgInput">Lien de l'image:</label><br/>
                 <input required 
                        type="file" 
                        ref="file" 
@@ -37,23 +37,24 @@
                     :class="btnClass"
                     to="Posts"
                     type="button">
-              Back to posts
+              Retour à l'accueil
             </router-link>
 
             <div v-if="message" class="mt-4">
               <h4>{{ title }}</h4>
-              <img :src="imageSrc" class="img-fluid" alt="Image new post"/>
+              <img :src="imageSrc" class="img-fluid" alt="Image uploadé"/>
             </div>
 
             <button v-if=" message === '' "
                     :class="btnClass" 
                     type="submit">
-              Upload
+              Publier 
             </button>
 
           </form>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -66,7 +67,7 @@ export default {
       imageUrl: undefined,
       userId: "",
       message: "",
-      btnClass: "btn btn-red",
+      btnClass: "btn btn-info",
       titleClass: "font-weight-bold h1 mb-4",
       borderClass: "container fifty-width border border-light p-3 text-light pb-4 col-10 col-sm-8 col-lg-6",
       imageTitle: "",
@@ -113,6 +114,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+
 .ninety-width {
   width:90%
 }
