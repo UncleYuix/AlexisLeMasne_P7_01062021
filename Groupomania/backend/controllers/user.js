@@ -1,6 +1,3 @@
-// j'installe donc les modules bcrypt pour l'auth et json pour le hash
-
-
 // npm install --save bcrypt
 const bcrypt = require('bcrypt');
 // npm install --save jsonwebtoken
@@ -9,9 +6,9 @@ const jwt = require('jsonwebtoken');
 var conn = require('../mySqlConfig');
 require('dotenv').config();
 
-
 // Pour créer un compte :  un token qui éxpire en 24h est crée  - par défault le compte est basic et non admin
 // si les regex sont mauvais - même si le front le dira : "password invalide" 
+
 
 exports.signup = (req, res, next) => {
   if (req.body.firstName && req.body.lastName && req.body.email && req.body.password) {
@@ -69,7 +66,7 @@ exports.login = (req, res, next) => {
           
         }
         else {
-          return res.status(400).json({ message: "Invalid user" });
+          return res.status(400).json({ message: "Invalid u" });
         }
       })
     })
@@ -98,6 +95,7 @@ exports.profileComment = (req, res, next) => {
 
 // j'ai donc mon mysql pour les request DELETE - qui erase ma bdd - si erreur, je renvoie un profil inconnu
 
+
 exports.deleteUser = (req, res, next) => {
   if (req.params.id) {
     conn.query('DELETE FROM commentaries WHERE userId=?', [req.params.id], function(error,result) {
@@ -111,7 +109,7 @@ exports.deleteUser = (req, res, next) => {
     })
     conn.query(`DELETE FROM users WHERE id=?`, [req.params.id], function(error, result){
       if (error) return res.status(500).json({ error : error });
-      return res.status(200).json({ message : 'Tout vos données on été supprimées (commentaries, likes, posts, account)' })
+      return res.status(200).json({ message : 'All traces of your account have been deleted (commentaries, likes, posts, account)' })
     })
   }
   else {
@@ -121,22 +119,23 @@ exports.deleteUser = (req, res, next) => {
 
 // On vérifie qu'on modifie un utilisateur existant puis que l'email qu'on veut update n'existe pas déjà
 
+
 exports.modifyUser = (req, res, next) => {
   if (req.params.id) {
-    conn.query('SELECT * FROM users WHERE id=?', [req.params.id], function(err,resultat) { 
+    conn.query('SELECT * FROM users WHERE id=?', [req.params.id], function(err,resultat) { // On vérifie qu'on modifie un utilisateur existant
       if (err) return res.status(500).json({ error : err })
       if (resultat.length === 0) {
         return res.status(404).json({ error : 'Profil inconnu' })
       }
       else {
-        conn.query(`SELECT email, id FROM users WHERE email=?`, [req.body.email], function(problem, result) { 
+        conn.query(`SELECT email, id FROM users WHERE email=?`, [req.body.email], function(problem, result) { // On vérifie si l'email qu'on veut update n'existe pas déjà
           if (problem) return res.status(500).json({ error : problem });
           if ((result[0] !== undefined || result === []) && req.params.id != result[0].id) {
             return res.status(500).json({ message : 'This email is already used'})
           }
 
-        // Modification de profil SANS changement d'email
-        
+          // Modification de profil SANS changement d'email
+
           bcrypt.hash(req.body.password, 10, (err, hash) => {
             const time = new Date();
             if (req.body.email === null) { 
@@ -148,9 +147,9 @@ exports.modifyUser = (req, res, next) => {
               )
             }
 
-            // Modification de profil AVEC changement d'email
-
-            else { 
+             // Modification de profil AVEC changement d'email
+             
+            else {
             conn.query(`UPDATE users SET firstName=?, lastName=?, email=?, password=?, lastUpdate=? WHERE id=${req.params.id}`, 
               [req.body.firstName, req.body.lastName, req.body.email, hash, time], 
               function(err, success) {

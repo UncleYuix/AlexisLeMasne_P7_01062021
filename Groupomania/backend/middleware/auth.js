@@ -3,6 +3,7 @@ require('dotenv').config()
 
 // de la même manière que le P6, dotenv est utilisé, il ne doit pas être envoyé sur git pour sécuriser le projet
 
+
 module.exports = (req, res, next) => {
     try {
       const token = req.headers.authorization.split(' ')[1];

@@ -136,7 +136,8 @@ exports.getLikesDislikes = (req,res) => {
 exports.likePost = (req, res) => {
     if (req.params.id && req.body.userId && req.body.type) {
         
-        if (req.body.type == 1) {  // Cas du like de post  
+         // si on like le post
+        if (req.body.type == 1) {   
             conn.query('SELECT id FROM likes WHERE userId = ? AND postId =?', [req.body.userId, req.params.id], function(error, result) {
                 
                 if  (result[0] !== undefined || result === []) { // Cas du unlike
@@ -155,7 +156,9 @@ exports.likePost = (req, res) => {
                     })
                 }     
             
-                else { // Cas du like si il n'y en avait pas avant 
+// Cas du like si il n'y en avait pas avant , premier up
+
+                else { 
                     conn.query('INSERT INTO likes (userId, postId, type) VALUES (?, ?, ?)',
                     [req.body.userId, req.params.id, req.body.type], function(error, resultat) {
                         if (error) return res.status(500).json({ error : error });
@@ -173,10 +176,14 @@ exports.likePost = (req, res) => {
                 }
             })
         }        
-        else if (req.body.type == -1) {  // Cas du dislike de post
+
+        // si on dislike le post
+        else if (req.body.type == -1) {  
             conn.query('SELECT id FROM likes WHERE userId = ? AND postId =?', [req.body.userId, req.params.id], function(error, result) {
                 
-                if  (result[0] !== undefined || result === []) { // Cas du undislike
+// si on enlève le dislike
+
+                if  (result[0] !== undefined || result === []) { 
                     conn.query('DELETE FROM likes WHERE userId = ? AND postId =?', [req.body.userId, req.params.id], function(error,resultat){
                         if (error) return res.status(500).json({ error : error });
                         conn.query('SELECT * FROM likes WHERE type=? AND postId =?', [1, req.params.id],function(errors,nbeLikes){
@@ -192,7 +199,10 @@ exports.likePost = (req, res) => {
                     })
                 }     
             
-                else { // Cas du dislike si il n'y en avait pas avant 
+
+                // Cas du dislike si il n'y en avait pas avant 
+
+                else { 
                     conn.query('INSERT INTO likes (userId, postId, type) VALUES (?, ?, ?)',
                     [req.body.userId, req.params.id, req.body.type], function(error, resultat) {
                         if (error) return res.status(500).json({ error : error });

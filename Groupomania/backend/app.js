@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/users');
@@ -18,8 +19,7 @@ app.use((req, res, next) => {
 });
 
 // Bodyparseur étant inclus dans express maintenant, je n'ai pas besoin de l'utiliser
-
-
+app.use(bodyParser.json());
 
 // Permet de charger les images dans le dossier 'images'
 app.use('/images', express.static(path.join(__dirname, 'images')));
