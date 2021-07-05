@@ -42,11 +42,7 @@
         <div class="rules pt-6 mb-5text-center">
           <p>Merci de votre attention sur le sujet</p>
 
-<router-link to="Content"  class="btn btn-primary btn-lg"> Accueil </router-link>
-
-
-
-
+<router-link to="Posts"  class="btn btn-primary btn-lg"> Accueil </router-link>
 
         </div>
       </div>

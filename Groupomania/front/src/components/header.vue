@@ -1,112 +1,96 @@
 <template>
-  <header>
-    <div class="bg-dark">
-      <div class="row">
-        <nav class="col navbar navbar-expand-lg navbar-dark">
-          <div class="navbar-brand ml-3">
-            <img
-              src="../assets/icon-left-font-monochrome-white.png"
-              width="220"
-              height="150"
-              alt="Site logo"
-            />
-          </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div id="navbarContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav float-right ml-5 mr-1 text-center">
-              <li class="nav-item active">
-                <a class="nav-link border border-info ml-5" href="">
-                  Mes Publications</a
-                >
-                <router-link to="myPublication"> Mes publications </router-link>
-              </li>
+  <header class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info">
 
-              <li class="nav-item active">
-                <a class="nav-link border border-info ml-5" href="">
-                  Poster un message sans modale </a
-                >
-                <router-link to="addMessage"> Poster un message sans Modale  </router-link>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link border border-info ml-5" href="myAccount">
-                  Mon Compte
-                </a>
-                <router-link to="myAccount"> Mon compte </router-link>
-              </li>
-
-              <li class="nav-item active">
-                <a
-                  href="Register"
-                  v-on:click="Logout()"
-                  class="nav-link border border-info ml-5"
-                >
-                  Se déconnecter
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+    <!-- Le logo qui permettra de retourner à /posts -->
+    <div class="col-4 d-flex align-items-center justify-content-start px-0">
+      <router-link to="/posts">
+        <img src="@/assets/icon-left-font.png" id="logoGroupo" width="250px" alt="Logo Groupomania" class="logo"/>
+      </router-link>
     </div>
 
-    <div class="jumbotron text-center"></div>
-
-    <div class="row">
-      <!-- c'est là que ça chie dans les mediaQ -->
-      <div class="col-12 text-center font-weight-light xs-Display 3">
-        <!-- <img
-          class="logo"
-          src="../assets/icon-left-font-monochrome-black.png"
-          height="200"
-        /> -->
-        <aside class="border border-dark rounded-sm">
-          <h1>
-            Structurons notre collectif vers un avenir co-construit et
-            bienveillant
-          </h1>
-          <h2>Et la bonne année aussi, profitez du 13e mois !</h2>
-          <h3>
-            le forum est soumis a modération, contactez l'administrateur en cas
-            problèmes ou situation ne respectant
-            <router-link to="/rules"> les règles </router-link>
-          </h3>
-        </aside>
-      </div>
+    <div class="d-flex col-4 justify-content-center align-items-center">
+      <p class="text-dark" id="name"> Bonne navigation  {{ fullName }} ! </p>
     </div>
+
+    <!-- L'avatar + upload à droite pour aller sur son compte ou createpost -->
+    <div id="rightSide" class="d-flex flex-row align-items-center justify-content-end col-4">
+             <router-link to="/rules" >
+        <button class="my-auto btn-red p-1">         
+           Règles 
+        </button>
+      </router-link>
+         <router-link to="/upload" >
+        <button class="my-auto btn-red p-1">         
+          + Publier 
+        </button>
+      </router-link>
+      <router-link to="/settings" class="ml-4">
+        <img src="@/assets/icon-account.png" />
+      </router-link>
+      
+
+    </div>
+
   </header>
 </template>
 
 <script>
 export default {
-  name: "header",
-  methods: {
-    Logout() {
-      localStorage.clear();
-      this.$router.push("/");
-    },
+  name: "Header",
+  data() {
+    return {
+      fullName: "",
+    }
   },
+  mounted() {
+    this.fullName = localStorage.getItem("name").split('_')[0] + (' ') + localStorage.getItem("name").split('_')[1]
+  },
+  destroyed() {
+    this.fullName= null;
+  }
 };
 </script>
 
-<style scoped>
-header {
-  width: 99%;
+<style lang="scss" scoped>
+
+#rightSide {
+  align-content: center;
+  &>a>img {
+    width: 50px;
+    height: 50px;
+  }
 }
-.logo {
-  margin: 25px;
-  padding: 10px;
-  border: 3px solid black;
-  border-radius: 50px;
+
+p {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
 }
+
+@media all and (max-width: 750px) {
+  #logoGroupo {
+    width: auto;
+    height:40px;
+  }
+
+  #name {
+    font-size: 15px;
+    font-weight: 600;
+    display:none
+  }
+
+  #rightSide {
+    &>a>img {
+      width:auto;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    &>a>button {
+      font-size: 13px;
+      width: 65px;
+      height: 50px;
+      padding: auto;  
+    }
+  }
+} 
 </style>

@@ -1,58 +1,78 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Login from "../views/Login.vue";
+import Signup from "../views/Signup.vue";
+import Posts from "../views/Posts.vue";
+import Post from "../views/Post.vue";
+import AccountPosts from "../views/AccountPosts.vue";
+import Settings from "../views/Settings.vue";
+import NewPost from "../views/NewPost.vue";
+import PostUpdate from "../views/PostUpdate.vue";
+import LogOut from "../views/Disconnection.vue";
 
-const routes = [
-  {
-    path: "/",
-    name: "Register",
-    component: () => import("../views/Register.vue"),
-  },
-  // {
-  //   path: "/register",
-  //   name: "register",
-  //   component: () =>
-  //     import("../components/register.vue"),
-  // },
-  {
-    path: "/Bacasable",
-    name: "Bacasable",
-    component: () => import("../views/Bacasable.vue"),
-  },
+Vue.use(VueRouter);
 
-  {
-    path: "/Content",
-    name: "Content",
-    component: () => import("../views/Content.vue"),
-  },
+const router = new VueRouter({
+  mode: "history",
+  routes: [
+    {
+      // Me permet d'indiquer directement login dans l'url quand on se connecte au site
+      path: "/",
+      redirect: { name: "Login" }
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: Login
+    },
+    {
+      path: "/signup",
+      name: "Signup",
+      component: Signup
+    },
+    {
+      path: "/posts",
+      name: "Posts",
+      component: Posts
+    },
+    {
+      path: "/post/:id",
+      name: "Post",
+      component: Post
+    },
+    {
+      path: "/postupdate/:id",
+      name: "PostUpdate",
+      component: PostUpdate
+    },
+    {
+      path: "/settings",
+      name: "Settings",
+      component: Settings
+    },
+    {
+      path: "/settings/posts",
+      name: "AccountPosts",
+      component: AccountPosts
+    },
+    {
+      path: "/settings/disconnect",
+      name: "LogOut",
+      component: LogOut
+    },
+    {
+      path: "/upload",
+      name: "NewPost",
+      component: NewPost
+    },
+    {
+      path: "/rules",
+      name: "Rules",
+      component: Post
 
-  {
-    path: "/rules",
-    name: "rules",
-    component: () => import("../components/rules.vue"),
-  },
-  {
-    path: "/addMessage",
-    name: "addMessage",
-    component: () => import("../components/addMessage.vue"),
-  },
-
-  {
-    path: "/myAccount",
-    name: "myAccount",
-    component: () => import("../components/myAccount.vue"),
-  },
-
-  {
-    path: "/myPublication",
-    name: "myPublication",
-    component: () => import("../components/myPublication.vue"),
-  }
-
-];
-
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
+      // ça veut pas me faire mon truc de rules en import
+    },
+  ]
 });
 
 export default router;
-

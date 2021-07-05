@@ -1,16 +1,19 @@
 <template>
-
   <div id="app">
-  <router-view />
-
-  <footer class="mt-5 mb-3 text-muted text-center">
-    <p>         
-          <router-link to="/Content"> lien vers vue Content sans login </router-link>
-    </p>
-    <!-- <p> Je met ça en bas   <a href="content.html">  le vieux html du Content </a> </p> -->
-      <!-- <p> &copy; Produit par Mr Alexis LM pour la société Groupomania -  2021</p> -->
-    </footer>
+    <router-view />
   </div>
-
 </template>
 
+<style lang="scss">
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#app, body, html {
+  height: 100%;
+}
+</style>
