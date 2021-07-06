@@ -1,63 +1,67 @@
 <template>
   <div class="pb-5 big-height">
-    <Header/>
-<div class="backNewPost bg-info3">
-    <div class="container pt-5 pb-5 bg-info4">
-      <div class="row">
-        <div :class="borderClass">
-          <form @submit.prevent="createPost">
-            <h2 :class="titleClass"><u>Nouvel Publication</u></h2>
+    <Header />
+    <div class="backNewPost bg-info3">
+      <div class="container pt-5 pb-5 bg-info4">
+        <div class="row">
+          <div :class="borderClass">
+            <form @submit.prevent="createPost">
+              <h2 :class="titleClass"><u>Nouvel Publication</u></h2>
 
-            <div class="mb-4 d-flex flex-column px-3">
-              <div class="text-left">
-                <label id="titleText" for="Title"> Titre de la publication:</label>
-                <FormInput idLinked="Title" v-model="title"></FormInput>
+              <div class="mb-4 d-flex flex-column px-3">
+                <div class="text-left">
+                  <label id="titleText" for="Title">
+                    Titre de la publication:</label
+                  >
+                  <FormInput idLinked="Title" v-model="title"></FormInput>
+                </div>
+
+                <form class="text-left" enctype="multipart/form-data">
+                  <label for="imgInput">Lien de l'image:</label><br />
+                  <input
+                    required
+                    type="file"
+                    ref="file"
+                    id="newImage"
+                    message=""
+                    name="imgInput"
+                    class="text-light"
+                    @change="selectImg($event)"
+                    enctype="multipart/form-data"
+                  />
+                </form>
               </div>
 
-              <form class="text-left"  enctype="multipart/form-data">
-                <label for="imgInput">Lien de l'image:</label><br/>
-                <input required 
-                       type="file" 
-                       ref="file" 
-                       id="newImage" 
-                       message=""
-                       name="imgInput" 
-                       class="text-light"
-                       @change="selectImg($event)" 
-                       enctype="multipart/form-data"/>
-              </form>
-            </div>
+              <h3 v-if="message" class="font-weight-bold h2 mb-4 text-success">
+                {{ message }}
+              </h3>
 
-            <h3 v-if="message"
-                class="font-weight-bold h2 mb-4 text-success">
-              {{ message }}
-            </h3>
+              <router-link
+                v-if="message"
+                name="back-to-posts"
+                :class="btnClass"
+                to="Posts"
+                type="button"
+              >
+                Retour à l'accueil
+              </router-link>
 
-            <router-link v-if="message"
-                    name="back-to-posts"
-                    :class="btnClass"
-                    to="Posts"
-                    type="button">
-              Retour à l'accueil
-            </router-link>
+              <div v-if="message" class="mt-4">
+                <h4>{{ title }}</h4>
+                <img :src="imageSrc" class="img-fluid" alt="Image uploadé" />
+              </div>
 
-            <div v-if="message" class="mt-4">
-              <h4>{{ title }}</h4>
-              <img :src="imageSrc" class="img-fluid" alt="Image uploadé"/>
-            </div>
+              <button v-if="message === ''" :class="btnClass" type="submit">
+                Publier
+              </button>
 
-            <button v-if=" message === '' "
-                    :class="btnClass" 
-                    type="submit">
-              Publier 
-            </button>
-
-              <router-link to="/Posts"  class="btn btn-primary ml-3"> Retour </router-link>
-
-          </form>
+              <router-link to="/Posts" class="btn btn-primary ml-3">
+                Retour
+              </router-link>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -72,47 +76,47 @@ export default {
       message: "",
       btnClass: "btn btn-info",
       titleClass: "font-weight-bold h1 mb-4",
-      borderClass: "container fifty-width border border-light p-3 text-light pb-4 col-10 col-sm-8 col-lg-6",
+      borderClass:
+        "container fifty-width border border-light p-3 text-light pb-4 col-10 col-sm-8 col-lg-6",
       imageTitle: "",
       imageSrc: null,
-    }
+    };
   },
   created() {
-    if (sessionStorage.getItem('token')===null) {
-      this.$router.push({ name: 'Login' })
+    if (sessionStorage.getItem("token") === null) {
+      this.$router.push({ name: "Login" });
     }
   },
   methods: {
     createPost(e) {
-      e.preventDefault()
+      e.preventDefault();
       const myForm = new FormData();
       myForm.append("file", this.imageUrl);
       myForm.append("title", this.title);
 
       this.$axios
-      .get(`auth/profile/${sessionStorage.getItem('token')}`)
-      .then(response => {
+        .get(`auth/profile/${sessionStorage.getItem("token")}`)
+        .then((response) => {
+          this.userId = response.data.user[0].id;
+          myForm.append("userId", this.userId);
 
-        this.userId= response.data.user[0].id
-        myForm.append("userId", this.userId);
-
-        this.$axios
-          .post('posts/', myForm)
-          .then(responses => {
-            this.message = responses.data.message,
-            this.btnClass= "btn btn-success",
-            this.titleClass= "font-weight-bold h1 mb-4 text-success",
-            this.borderClass= "container fifty-width border border-success p-3 text-light pb-4",
-            this.imageSrc= responses.data.imagePath,
-            this.imageTitle= this.title
-          })
-          .catch(error => this.message= error.data.message)
-      })
+          this.$axios
+            .post("posts/", myForm)
+            .then((responses) => {
+              (this.message = responses.data.message),
+                (this.btnClass = "btn btn-success"),
+                (this.titleClass = "font-weight-bold h1 mb-4 text-success"),
+                (this.borderClass =
+                  "container fifty-width border border-success p-3 text-light pb-4"),
+                (this.imageSrc = responses.data.imagePath),
+                (this.imageTitle = this.title);
+            })
+            .catch((error) => (this.message = error.data.message));
+        });
     },
     selectImg() {
-      this.imageUrl = this.$refs.file.files[0]
-    }
-  }
-}
+      this.imageUrl = this.$refs.file.files[0];
+    },
+  },
+};
 </script>
-

@@ -21,11 +21,7 @@
       <form @submit="connection">
         <FormInput idLinked="VotreEmail" v-model="email" />
 
-        <FormInput
-          idLinked="Password"
-          v-model="password"
-          class="mb-5"
-        />
+        <FormInput idLinked="Password" v-model="password" class="mb-5" />
 
         <p>
           <input
@@ -48,9 +44,7 @@
 </template>
 
 <script>
-
 // import loginJs from "./js/loginJs.js";
-
 
 export default {
   data() {

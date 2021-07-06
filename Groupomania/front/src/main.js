@@ -2,11 +2,8 @@ import Vue from "vue";
 import "./plugins/bootstrap-vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store"; //pas utilisé faute de temps
 import axios from "axios";
-
-// import des JS 
-
 
 
 

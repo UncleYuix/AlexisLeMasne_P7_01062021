@@ -1,9 +1,11 @@
 <template>
-  <div class="border border-light rounded-lg text-light mb-3 py-2 px-3 d-flex flex-end flex-column w-75">
-
-    <div v-if="this.message===''"
-         class="d-flex flex-row justify-content-between align-items-start">
-
+  <div
+    class="border border-light rounded-lg text-light mb-3 py-2 px-3 d-flex flex-end flex-column w-50"
+  >
+    <div
+      v-if="this.message === ''"
+      class="d-flex flex-row justify-content-between align-items-start"
+    >
       <div class="d-flex flex-column justify-content-start mr-1">
         <u class="text-left h5">
           {{ fullName }}
@@ -15,22 +17,21 @@
       </div>
 
       <div class="d-flex flex-column" id="deleteAndTime">
-        <img src="@/assets/icon-delete.png"
-             v-if="role === 'admin' || user === userId" 
-             alt="Icône suppression"
-             class="icon ml-auto"
-             @click="deleteComment"/>
-        <p class="text-right">Date :  {{ time.split('T')[0] }}</p>
-        <p class="text-right">Heure : {{ time.split('T')[1].split('.')[0] }}</p>
+        <img
+          src="@/assets/icon-delete.png"
+          v-if="role === 'admin' || user === userId"
+          alt="Icône suppression"
+          class="icon ml-auto"
+          @click="deleteComment"
+        />
+        <p class="text-right">Date : {{ time.split("T")[0] }}</p>
+        <p class="text-right">Heure : {{ time.split("T")[1].split(".")[0] }}</p>
       </div>
-
     </div>
 
-    <div v-else
-         class="text-success h3">
+    <div v-else class="text-dark h3">
       {{ message }}
     </div>
-
   </div>
 </template>
 
@@ -40,58 +41,59 @@ export default {
   props: {
     idPost: {
       required: true,
-      type: Number
+      type: Number,
     },
     comment: {
       required: true,
-      type: ""
+      type: "",
     },
     user: {
       required: true,
-      type: Number
+      type: Number,
     },
     time: {
       required: true,
-      type: ""
+      type: "",
     },
     commentId: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
   data() {
     return {
       fullName: "",
       role: "",
       userId: Number,
-      message: ""
-    }
+      message: "",
+    };
   },
   mounted() {
+    this.$axios.get(`/auth/profile/id/${this.user}`).then((response) => {
+      this.fullName =
+        response.data.user[0].firstName + " " + response.data.user[0].lastName;
+    });
     this.$axios
-      .get(`/auth/profile/id/${this.user}`)
-      .then(response => {
-        this.fullName= response.data.user[0].firstName + ' ' + response.data.user[0].lastName
-      })
-    this.$axios
-      .get(`auth/profile/${sessionStorage.getItem('token')}`)
-      .then(response => {
-        this.role= response.data.user[0].role
-        this.userId= response.data.user[0].id
-      })
+      .get(`auth/profile/${sessionStorage.getItem("token")}`)
+      .then((response) => {
+        this.role = response.data.user[0].role;
+        this.userId = response.data.user[0].id;
+      });
   },
   methods: {
     deleteComment() {
       this.$axios
-        .delete(`/posts/${this.idPost}/comments/${this.commentId}`, { data: this.userId})
-        .then(response => {
-          this.message= response.data.message
-          this.$emit('comment-deleted')
+        .delete(`/posts/${this.idPost}/comments/${this.commentId}`, {
+          data: this.userId,
         })
-        .catch(error => this.message=error)
-    }
-  }
-}
+        .then((response) => {
+          this.message = response.data.message;
+          this.$emit("comment-deleted");
+        })
+        .catch((error) => (this.message = error));
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -111,7 +113,7 @@ export default {
 
 @media all and (max-width: 750px) {
   .small-area {
-    width: 100%
+    width: 100%;
   }
 }
 </style>

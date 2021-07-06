@@ -9,7 +9,6 @@
       <h3>{{ title }}</h3>
 
       <div class="d-flex flex-column">
-
         <!-- On vérifie les conditions d'affichage du bouton modify -->
         <router-link :to="routeUpdate">
           <button
@@ -19,7 +18,7 @@
           >
             Modifier
           </button>
-                    <button
+          <button
             v-if="postUserId === userId"
             class="Tiny btn btn-info5 mb-2"
             :id="postId"
@@ -35,7 +34,7 @@
         >
           Supprimer
         </button>
-                <button
+        <button
           v-if="role === 'admin' || postUserId === userId"
           class="Tiny btn btn-info5 mb-2"
           @click="deletePost"
@@ -49,7 +48,6 @@
       <img :src="image" alt="Image du post" class="not-too-big m-auto" />
     </router-link>
 
-
     <div
       class="d-flex flex-row justify-content-between py-2 align-items-center bg-info3"
     >
@@ -57,7 +55,8 @@
         <div
           class="d-flex flex-row align-items-center border border-warning pr-2"
         >
-          <i class="pouceImg fas fa-thumbs-up pl-3"
+          <i
+            class="pouceImg fas fa-thumbs-up pl-3"
             alt="Pouce up"
             @click="addLike"
           ></i>
@@ -67,7 +66,8 @@
         <div
           class="d-flex flex-row align-items-center border border-warning pr-2"
         >
-          <i class="pouceImg fas fa-thumbs-down pl-3"
+          <i
+            class="pouceImg fas fa-thumbs-down pl-3"
             alt="Pouce down"
             @click="addDislike"
           ></i>
@@ -80,7 +80,8 @@
       </p>
     </div>
     <div class="clickImage border border-warning p-1">
-      <i class="infoLogo fas fa-info-circle"
+      <i
+        class="infoLogo fas fa-info-circle"
         @click="Wrong"
         alt="icone info"
       ></i>
@@ -188,7 +189,7 @@ export default {
   max-height: 800px;
 }
 
-.Tiny{
+.Tiny {
   display: none;
 }
 
@@ -218,9 +219,9 @@ export default {
 }
 
 @media screen and (max-width: 640px) {
-
-
-   .Gros, .infoLogo , .clickImage {
+  .Gros,
+  .infoLogo,
+  .clickImage {
     display: none;
   }
 

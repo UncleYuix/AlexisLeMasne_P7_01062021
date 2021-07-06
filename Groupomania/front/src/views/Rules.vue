@@ -35,15 +35,17 @@
           La communauté du Forum de Groupomania est une communauté de salariéss.
           Les utilisateurs sont pour autant invités à ne pas divulguer leurs
           adresses et numéros de téléphone, et ceux d’autres utilisateurs, sur
-          le Forum. Merci d'avoir pris de votre temps pour lire ces quelques lignes. Si vous souhaitez partager ces informations, nous vous
-          prions de le faire de manière privée.
+          le Forum. Merci d'avoir pris de votre temps pour lire ces quelques
+          lignes. Si vous souhaitez partager ces informations, nous vous prions
+          de le faire de manière privée.
         </p>
 
         <div class="rules pt-6 mb-5text-center">
           <p>Merci de votre attention sur le sujet et bonne navigation !</p>
 
-<router-link to="Posts"  class="btn btn-primary btn-lg"> Accueil </router-link>
-
+          <router-link to="Posts" class="btn btn-primary btn-lg">
+            Accueil
+          </router-link>
         </div>
       </div>
     </article>

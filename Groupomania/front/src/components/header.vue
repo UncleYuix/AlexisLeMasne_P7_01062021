@@ -15,7 +15,9 @@
       </router-link>
     </div>
 
-    <div class="d-flex col-4 justify-content-center align-items-center text-center">
+    <div
+      class="d-flex col-4 justify-content-center align-items-center text-center"
+    >
       <p class="text-warning" id="name">
         <i class="fas fa-anchor"></i> Bonne navigation {{ fullName }} !
         <i class="fas fa-anchor"></i>
@@ -26,26 +28,24 @@
       id="rightSide"
       class="d-flex flex-row align-items-center justify-content-end col-4"
     >
-      <button class="Gros btn btn-dark m-2"
-                  @click="backToLogin">
-            Se déconnecter 
+      <button class="Gros btn btn-dark m-2" @click="backToLogin">
+        Se déconnecter
+      </button>
+      <button class="Tiny btn btn-danger ml-2 " @click="backToLogin">
+        X
+      </button>
+      <div class="rightYellow m-2">
+        <router-link to="/upload">
+          <button class="btn-warning p-1 m-2">
+            Publier
           </button>
-              <button class="Tiny btn btn-danger ml-2 "
-                  @click="backToLogin">
-             X
+        </router-link>
+        <router-link to="/settings">
+          <button class="btn-warning p-1 m-2">
+            Profil
           </button>
-    <div class="rightYellow m-2">
-      <router-link to="/upload">
-        <button class="btn-warning p-1 m-2">
-          Publier
-        </button>
-      </router-link>
-      <router-link to="/settings">
-        <button class="btn-warning p-1 m-2">
-          Profil
-        </button>
-      </router-link>
-    </div>
+        </router-link>
+      </div>
     </div>
   </header>
 </template>
@@ -59,8 +59,8 @@ export default {
     };
   },
   methods: {
-        backToLogin() {
-      this.$router.push({ name: 'Login' })
+    backToLogin() {
+      this.$router.push({ name: "Login" });
     },
   },
   mounted() {
@@ -98,7 +98,7 @@ p {
     display: none;
   }
 
-   .btn-warning  {
+  .btn-warning {
     margin-bottom: 10px;
   }
 }

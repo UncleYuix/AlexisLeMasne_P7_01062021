@@ -1,6 +1,6 @@
 <template>
   <div>
-      <router-link :to="route" class='text-light'>{{ msg }}</router-link>
+    <router-link :to="route" class="text-light">{{ msg }}</router-link>
   </div>
 </template>
 
@@ -10,17 +10,17 @@ export default {
   props: {
     msg: {
       type: String,
-      required: true
+      required: true,
     },
     route: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   mounted() {
     if (this.$props.route === "login" || this.$props.route === "signup") {
-      this.$el.firstChild.classList = "text-primary"
+      this.$el.firstChild.classList = "text-primary";
     }
-  }
+  },
 };
 </script>

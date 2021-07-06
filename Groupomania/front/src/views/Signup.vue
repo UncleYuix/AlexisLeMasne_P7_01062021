@@ -27,9 +27,12 @@
           class="mb-1"
         />
 
-        <p class="m-3" id="regexMessage"> <u>
-           <i class="fas fa-exclamation-triangle" ></i> Votre mot de passe doit contenir au moins une majuscule, un chiffre et
-          8 caractères <i class="fas fa-exclamation-triangle" ></i> </u>
+        <p class="m-3" id="regexMessage">
+          <u>
+            <i class="fas fa-exclamation-triangle"></i> Votre mot de passe doit
+            contenir au moins une majuscule, un chiffre et 8 caractères
+            <i class="fas fa-exclamation-triangle"></i>
+          </u>
         </p>
 
         <p>
@@ -40,17 +43,19 @@
           />
         </p>
       </form>
-          <div class="row col-12 col-sm-8 col-lg-12 text-center">
-      <div class="col align-items-center justify-content-center p-2">
-        <strong>
-        <p class="my-auto mr-2">Déjà un compte?</p>
-        <MessageRouter msg="Connectez vous!" route="login" class="connectYou"></MessageRouter>
-        </strong>
+      <div class="row col-12 col-sm-8 col-lg-12 text-center">
+        <div class="col align-items-center justify-content-center p-2">
+          <strong>
+            <p class="my-auto mr-2">Déjà un compte?</p>
+            <MessageRouter
+              msg="Connectez vous!"
+              route="login"
+              class="connectYou"
+            ></MessageRouter>
+          </strong>
+        </div>
       </div>
     </div>
-    </div>
-
-
   </div>
 </template>
 
@@ -88,4 +93,3 @@ export default {
   },
 };
 </script>
-
