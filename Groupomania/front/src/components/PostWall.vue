@@ -9,24 +9,38 @@
       <h3>{{ title }}</h3>
 
       <div class="d-flex flex-column">
-        
+
         <!-- On vérifie les conditions d'affichage du bouton modify -->
         <router-link :to="routeUpdate">
           <button
             v-if="postUserId === userId"
-            class="btn btn-info5 mb-2"
+            class="Gros btn btn-info5 mb-2"
             :id="postId"
           >
             Modifier
+          </button>
+                    <button
+            v-if="postUserId === userId"
+            class="Tiny btn btn-info5 mb-2"
+            :id="postId"
+          >
+            <i class="fas fa-edit"></i>
           </button>
         </router-link>
         <!-- On vérifie les conditions d'affichage du bouton delete -->
         <button
           v-if="role === 'admin' || postUserId === userId"
-          class="btn btn-info5"
+          class="Gros btn btn-info5"
           @click="deletePost"
         >
           Supprimer
+        </button>
+                <button
+          v-if="role === 'admin' || postUserId === userId"
+          class="Tiny btn btn-info5 mb-2"
+          @click="deletePost"
+        >
+          X
         </button>
       </div>
     </div>
@@ -69,7 +83,7 @@
         {{ message }}
       </p>
     </div>
-    <p class="clickImage border border-warning p-1">
+    <div class="clickImage border border-warning p-1">
       <img
         @click="Wrong"
         src="@/assets/info--v3.png"
@@ -77,7 +91,7 @@
         class="infoLogo"
       />
       Cliquez sur l'image pour lire et commenter
-    </p>
+    </div>
   </div>
 </template>
 
@@ -176,8 +190,12 @@ export default {
 
 <style lang="scss">
 .not-too-big {
-  max-width: 95%;
+  max-width: 100%;
   max-height: 800px;
+}
+
+.Tiny{
+  display: none;
 }
 
 .bg-info2 {
@@ -206,8 +224,19 @@ export default {
 }
 
 @media screen and (max-width: 640px) {
-  .infoLogo {
+
+
+   .Gros, .infoLogo , .clickImage {
     display: none;
+  }
+
+  .pouceImg {
+    width: 20px;
+  }
+  .Tiny {
+    display: block;
+    color: rgb(97, 58, 58);
+    font-size: 10px;
   }
 }
 </style>

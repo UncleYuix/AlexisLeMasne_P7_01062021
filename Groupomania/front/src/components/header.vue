@@ -1,35 +1,47 @@
 <template>
-  <header class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info">
-
+  <header
+    class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info"
+  >
     <!-- Le logo qui permettra de retourner à /posts -->
     <div class="col-4 d-flex align-items-center justify-content-start px-0">
       <router-link to="/posts">
-        <img src="@/assets/icon-left-font.png" id="logoGroupo" width="250px" alt="Logo Groupomania" class="logo"/>
+        <img
+          src="@/assets/icon-left-font.png"
+          id="logoGroupo"
+          width="250px"
+          alt="Logo Groupomania"
+          class="logo"
+        />
       </router-link>
     </div>
 
-    <div class="d-flex col-4 justify-content-center align-items-center">
-      <p class="text-warning" id="name"> <i class="fas fa-anchor"></i> Bonne navigation  {{ fullName }} ! <i class="fas fa-anchor"></i> </p>
+    <div class="d-flex col-4 justify-content-center align-items-center text-center">
+      <p class="text-warning" id="name">
+        <i class="fas fa-anchor"></i> Bonne navigation {{ fullName }} !
+        <i class="fas fa-anchor"></i>
+      </p>
     </div>
 
-    
-    <div id="rightSide" class="d-flex flex-row align-items-center justify-content-end col-4">
+    <div
+      id="rightSide"
+      class="d-flex flex-row align-items-center justify-content-end col-4"
+    >
+      <button class="btn btn-dark"
+                  @click="backToLogin">
+            Se déconnecter 
+          </button>
 
-         <router-link to="/upload" >
-        <button class="my-auto btn-warning p-1 m-2">         
-           Publier 
+      <router-link to="/upload">
+        <button class="my-auto btn-warning p-1 m-2">
+          Publier
         </button>
       </router-link>
-        <router-link to="/settings" >
-        <button class="my-auto btn-warning p-1 m-2">         
-          Profil  
+      <router-link to="/settings">
+        <button class="my-auto btn-warning p-1 m-2">
+          Profil
         </button>
       </router-link>
-      
-      
-
     </div>
-
   </header>
 </template>
 
@@ -39,25 +51,28 @@ export default {
   data() {
     return {
       fullName: "",
-    }
+    };
+  },
+  methods: {
+        backToLogin() {
+      this.$router.push({ name: 'Login' })
+    },
   },
   mounted() {
-    this.fullName = localStorage.getItem("name").split('_')[0] + (' ') + localStorage.getItem("name").split('_')[1]
+    this.fullName =
+      localStorage.getItem("name").split("_")[0] +
+      " " +
+      localStorage.getItem("name").split("_")[1];
   },
   destroyed() {
-    this.fullName= null;
-  }
+    this.fullName = null;
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 #rightSide {
   align-content: center;
-  &>a>img {
-    width: 50px;
-    height: 50px;
-  }
 }
 
 p {
@@ -68,32 +83,14 @@ p {
 
 @media all and (max-width: 750px) {
   #logoGroupo {
-    width: auto;
-    height:40px;
+    width: 110px;
+    height: 50px;
   }
-
-  // .fa-anchor {
-  //   display: none;
-  // }
 
   #name {
     font-size: 15px;
     font-weight: 600;
-    display:none
+    display: none;
   }
-
-  #rightSide {
-    &>a>img {
-      width:auto;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-    &>a>button {
-      font-size: 13px;
-      width: 65px;
-      height: 50px;
-      padding: auto;  
-    }
-  }
-} 
+}
 </style>

@@ -82,15 +82,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .fifty-width {
-//   width: 50%
-// }
 
-// .min-height {
-//   min-height: 100%;
-// }
 
 .bg-clair {
   background-color: rgba(157, 192, 202, 0.849);
+}
+
+@media screen and (max-width: 640px) {
+.jumbotron {
+  display: none
+}
+
+h1 {
+  font-size: 25px;
+}
 }
 </style>

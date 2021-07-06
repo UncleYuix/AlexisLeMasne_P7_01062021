@@ -40,10 +40,7 @@
           />
         </p>
       </form>
-      
-    </div>
-
-    <div class="row col-12 col-sm-8 col-lg-12 text-center">
+          <div class="row col-12 col-sm-8 col-lg-12 text-center">
       <div class="col align-items-center justify-content-center p-2">
         <strong>
         <p class="my-auto mr-2">Déjà un compte?</p>
@@ -51,6 +48,9 @@
         </strong>
       </div>
     </div>
+    </div>
+
+
   </div>
 </template>
 

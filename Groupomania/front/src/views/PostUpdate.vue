@@ -3,16 +3,16 @@
     <Header/>
 
     <div class="container border border-dark rounded-lg d-flex flex-row p-3 mt-5 bg-info">
-      <div class="w-50">
+      <div class="resume w-50">
         <p> Avant </p>
-        <hr/>
+    
         <p class="h1">{{ post.title }}</p>
         <img :src="post.imageUrl" class="not-too-big" alt="Post img"/>
       </div>
 
-      <div class="w-50 ml-1 border border-light">
+      <div class="w-50 ml-1">
         <p> Après</p>
-        <hr/>
+
         <div class="mb-4">
           <p :v-model="newTitle" class="h1"><u>{{newTitle}}</u></p>
           <FormInputSettings idLinked="Title"
@@ -34,16 +34,14 @@
                   @change="selectImg($event)"/>
         </form>
 
-        <!-- <div v-if="messageError"
-             class='text-danger h4 my-4'>
-         Choix d'image
-        </div> -->
 
         <button class="btn btn-dark"
                 @click="updatePost"
                 v-if="!messageOk">
           Modifier
         </button>
+
+        <router-link to="/Posts"  class="btn btn-primary btn-lg ml-2">  Retour </router-link>
 
         <div v-if="messageOk">
           <h3 class="font-weight-bold h2 mb-4 text-white">
@@ -143,5 +141,11 @@ hr {
   max-width: 50%;
   max-height: 800px;
   background-position : center;
+}
+
+@media screen and (max-width: 640px) {
+.resume {
+  display: none;
+}
 }
 </style>

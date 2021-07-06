@@ -7,7 +7,6 @@ import Post from "../views/Post.vue";
 import Settings from "../views/Settings.vue";
 import NewPost from "../views/NewPost.vue";
 import PostUpdate from "../views/PostUpdate.vue";
-import LogOut from "../views/Disconnection.vue";
 import Rules from "../views/Rules.vue"
 
 Vue.use(VueRouter);
@@ -49,11 +48,6 @@ const router = new VueRouter({
       path: "/settings",
       name: "Settings",
       component: Settings
-    },
-    {
-      path: "/settings/disconnect",
-      name: "LogOut",
-      component: LogOut
     },
     {
       path: "/upload",

@@ -72,6 +72,8 @@
                 </button>
               </div>
 
+              <router-link to="Posts"  class="d-flex flex-column align-items-center btn btn-primary btn-lg"> Retour </router-link>
+
               <p v-if="message!==''"
                 class="text-danger">
                 {{ message }}
