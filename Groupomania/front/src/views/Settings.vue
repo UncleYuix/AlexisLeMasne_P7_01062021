@@ -1,23 +1,18 @@
 <template>
-  <div class="big-height pb-5">
+  <div class="big-height">
     <Header/>
 
-    <div class="text-light container bg-info">
-      <div class="row">
-
-<!-- Partie gauche de la vue account settings -->
-        <Navigator isActive="1"></Navigator>
-
-
-        <!-- Partie droite de la vue account settings -->
-        <div class="col-9 p-3 d-flex flex-column">
-          <!-- Le titre -->
+    <div class="text-light container bg-info text-center">
+  
+   
+        <div class="col-12 p-3 d-flex flex-column">
+          
           <div class="w-100">
             <h2 class="mr-auto"><u>Mon compte :</u></h2>
             <hr/>
           </div>
 
-          <!-- Tout ce qui est relatif à la modification de données personnelles -->
+  
           <div class="right-side">
             <form class="form-user">
               <p> Votre Prenom:</p>
@@ -60,7 +55,7 @@
 
             <div class="m-auto">
               <div class="d-flex flex-column align-items-center">
-                <label for="confirmUpdate"> confirmation password </label>
+                <label for="confirmUpdate"> confirmation du password : </label>
                 <input class="mb-2" 
                        placeholder="Votre password" 
                        required 
@@ -72,7 +67,7 @@
                 </button>
               </div>
 
-              <router-link to="Posts"  class="d-flex flex-column align-items-center btn btn-primary btn-lg"> Retour </router-link>
+              <router-link to="/Posts"  class="d-flex flex-column align-items-center btn btn-primary mt-2"> Simple retour </router-link>
 
               <p v-if="message!==''"
                 class="text-danger">
@@ -95,10 +90,10 @@
               Supprimer mon compte
             </button>
 
-            <p class="auto bold">
+            <p class="auto bold text-center">
               <i class="fas fa-info-circle"></i> Toutes vos données (messages, photos, commentaires, informations seront supprimés)
             </p>
-            <p class=mx-auto> Conformement à la réglementation en vigueur. <i class="fas fa-info-circle"></i>
+            <p class="mx-auto text-center"> Conformement à la réglementation en vigueur.
               </p>
 
             <p v-if="messageDelete!==''"
@@ -107,7 +102,6 @@
               </p>
           </div>
         </div>
-      </div>
     </div>
 
   </div>
@@ -227,16 +221,9 @@ h2 {
 }
 
 hr {
-  width: 100%;
   border-top: 1px solid rgb(97%, 98%, 98%);
 }
 
-ul {
-  list-style-type: none;
-  font-size: 20px;
-  margin: 0px;
-  padding: 0px;
-}
 
 p {
   margin-bottom: 5px;
@@ -247,17 +234,12 @@ span {
   font-weight: 600;
 }
 
-input {
-  font-size: 16px;
-}
-.sixty-width {
-  width:60%
-}
+
 
 .right-side {
   display: flex;
   flex-direction: row;
-  text-align: left
+
 }
 
 .form-user {

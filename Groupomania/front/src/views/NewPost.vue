@@ -6,7 +6,7 @@
       <div class="row">
         <div :class="borderClass">
           <form @submit.prevent="createPost">
-            <h2 :class="titleClass"><u>Nouveau Post</u></h2>
+            <h2 :class="titleClass"><u>Nouvel Publication</u></h2>
 
             <div class="mb-4 d-flex flex-column px-3">
               <div class="text-left">
@@ -51,6 +51,8 @@
                     type="submit">
               Publier 
             </button>
+
+              <router-link to="/Posts"  class="btn btn-primary ml-3"> Retour </router-link>
 
           </form>
         </div>

@@ -40,7 +40,7 @@
           class="Tiny btn btn-info5 mb-2"
           @click="deletePost"
         >
-          X
+          <i class="far fa-trash-alt"></i>
         </button>
       </div>
     </div>
@@ -53,28 +53,24 @@
     <div
       class="d-flex flex-row justify-content-between py-2 align-items-center bg-info3"
     >
-      <div class="mr-auto d-flex pr-3">
+      <div class="mr-auto d-flex">
         <div
           class="d-flex flex-row align-items-center border border-warning pr-2"
         >
-          <img
-            src="@/assets/Like-2-icon.png"
-            alt="Pouce levé"
-            class="pouceImg"
+          <i class="pouceImg fas fa-thumbs-up pl-3"
+            alt="Pouce up"
             @click="addLike"
-          />
+          ></i>
           <p class="ml-1">{{ likes }}</p>
         </div>
 
         <div
           class="d-flex flex-row align-items-center border border-warning pr-2"
         >
-          <img
-            src="@/assets/Unlike-2-icon.png"
-            alt="Pouce baissé"
-            class="pouceImg"
+          <i class="pouceImg fas fa-thumbs-down pl-3"
+            alt="Pouce down"
             @click="addDislike"
-          />
+          ></i>
           <p class="ml-1">{{ dislikes }}</p>
         </div>
       </div>
@@ -84,12 +80,10 @@
       </p>
     </div>
     <div class="clickImage border border-warning p-1">
-      <img
+      <i class="infoLogo fas fa-info-circle"
         @click="Wrong"
-        src="@/assets/info--v3.png"
         alt="icone info"
-        class="infoLogo"
-      />
+      ></i>
       Cliquez sur l'image pour lire et commenter
     </div>
   </div>
@@ -216,9 +210,9 @@ export default {
 .pouceImg,
 .infoLogo {
   width: 45px;
-  background-color: #3c9ebe;
-  margin: 5px;
+
   &:hover {
+    color: red;
     cursor: pointer;
   }
 }
@@ -232,6 +226,7 @@ export default {
 
   .pouceImg {
     width: 20px;
+    margin-right: 20px;
   }
   .Tiny {
     display: block;

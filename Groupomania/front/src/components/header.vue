@@ -26,21 +26,26 @@
       id="rightSide"
       class="d-flex flex-row align-items-center justify-content-end col-4"
     >
-      <button class="btn btn-dark"
+      <button class="Gros btn btn-dark m-2"
                   @click="backToLogin">
             Se déconnecter 
           </button>
-
+              <button class="Tiny btn btn-danger ml-2 "
+                  @click="backToLogin">
+             X
+          </button>
+    <div class="rightYellow m-2">
       <router-link to="/upload">
-        <button class="my-auto btn-warning p-1 m-2">
+        <button class="btn-warning p-1 m-2">
           Publier
         </button>
       </router-link>
       <router-link to="/settings">
-        <button class="my-auto btn-warning p-1 m-2">
+        <button class="btn-warning p-1 m-2">
           Profil
         </button>
       </router-link>
+    </div>
     </div>
   </header>
 </template>
@@ -83,7 +88,7 @@ p {
 
 @media all and (max-width: 750px) {
   #logoGroupo {
-    width: 110px;
+    width: 145px;
     height: 50px;
   }
 
@@ -91,6 +96,10 @@ p {
     font-size: 15px;
     font-weight: 600;
     display: none;
+  }
+
+   .btn-warning  {
+    margin-bottom: 10px;
   }
 }
 </style>

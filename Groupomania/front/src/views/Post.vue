@@ -56,7 +56,7 @@
     </div>
 
 <!-- Si un commentaire est supprimé -->
-    <div v-else class="text-success border border-success rounded-lg thirty-width container py-3 mt-4">
+    <div v-else class="text-success border border-success rounded-lg  container py-3 mt-4">
 
       <p class="mb-3">
         {{ message }}
