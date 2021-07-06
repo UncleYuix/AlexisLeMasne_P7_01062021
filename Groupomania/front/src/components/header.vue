@@ -9,16 +9,12 @@
     </div>
 
     <div class="d-flex col-4 justify-content-center align-items-center">
-      <p class="text-warning" id="name"> Bonne navigation  {{ fullName }} ! </p>
+      <p class="text-warning" id="name"> <i class="fas fa-anchor"></i> Bonne navigation  {{ fullName }} ! <i class="fas fa-anchor"></i> </p>
     </div>
 
-    <!-- L'avatar + upload à droite pour aller sur son compte ou createpost -->
+    
     <div id="rightSide" class="d-flex flex-row align-items-center justify-content-end col-4">
-             <router-link to="/rules" >
-        <button class="my-auto btn-warning p-1 m-2">         
-           Règles 
-        </button>
-      </router-link>
+
          <router-link to="/upload" >
         <button class="my-auto btn-warning p-1 m-2">         
            Publier 
@@ -75,6 +71,10 @@ p {
     width: auto;
     height:40px;
   }
+
+  // .fa-anchor {
+  //   display: none;
+  // }
 
   #name {
     font-size: 15px;

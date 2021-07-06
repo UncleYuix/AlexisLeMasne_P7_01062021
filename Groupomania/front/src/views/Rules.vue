@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-light">
+  <div class="bg-info">
     <article>
-      <div class="container text-center border border-info mt-5 bg-white">
+      <div class="container text-center border border-info mt-5 p-5 bg-white">
         <h1 class="titleRules">
           <i class="fab fa-forumbee"></i> Charte des utilisateurs
           <i class="fab fa-forumbee"></i>
@@ -40,7 +40,7 @@
         </p>
 
         <div class="rules pt-6 mb-5text-center">
-          <p>Merci de votre attention sur le sujet</p>
+          <p>Merci de votre attention sur le sujet et bonne navigation !</p>
 
 <router-link to="Posts"  class="btn btn-primary btn-lg"> Accueil </router-link>
 

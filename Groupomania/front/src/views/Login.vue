@@ -6,12 +6,12 @@
     height: 100vh;
   "
   >
-    
-
-    <div class="col col-12 col-sm-8 col-lg-5">
+    <div class="col col-12 col-sm-8 col-lg-5 text-center">
       <img src="@/assets/icon-left-font.png" width="250px" class="my-5" />
-                <h1 class="mb-5 font-weight-bold"> Partager votre quotidien entre collègues, dans une ambiance
-              bienveillante !</h1>
+      <h1 class="mb-5 font-weight-bold">
+        Partager votre quotidien entre collègues, dans une ambiance
+        bienveillante !
+      </h1>
       <h2 class="mb-5 font-weight-bold" v-if="messageConnection === null">
         Connectez-vous !
       </h2>
@@ -21,7 +21,11 @@
       <form @submit="connection">
         <FormInput idLinked="VotreEmail" v-model="email" />
 
-        <FormInput idLinked="MotdePasseGroupomania" v-model="password" class="mb-5" />
+        <FormInput
+          idLinked="MotdePasseGroupomania"
+          v-model="password"
+          class="mb-5"
+        />
 
         <p>
           <input
@@ -31,27 +35,23 @@
           />
         </p>
       </form>
-          <div class="row col-12 col-sm-8 col-lg-12">
-      <div class="col align-items-center border border-dark justify-content-center bg-white">
-        <p class="my-auto mr-2">Pas encore de compte?</p>
-        <MessageRouter msg="Inscrivez vous!" route="signup"></MessageRouter>
-      </div>
-        <div class="col align-items-center border border-dark justify-content-center bg-white pt-2">
-       <router-link to="/rules" >
-       
-           Règles 
-       
-      </router-link>
+      <div class="row col-12 col-sm-8 col-lg-12">
+        <div
+          class="col align-items-center border border-dark justify-content-center bg-white1 rounded-pill"
+        >
+          <p class="my-auto mr-2">Pas encore de compte?</p>
+          <MessageRouter msg="Inscrivez vous!" route="signup"></MessageRouter>
         </div>
-                  
+      </div>
     </div>
-    </div>
-
-
   </div>
 </template>
 
 <script>
+
+// import loginJs from "./js/loginJs.js";
+
+
 export default {
   data() {
     return {
@@ -100,3 +100,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.bg-white1 {
+  background-color: rgb(236, 220, 210);
+}
+</style>

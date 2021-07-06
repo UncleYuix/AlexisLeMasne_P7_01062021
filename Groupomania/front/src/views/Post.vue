@@ -143,6 +143,10 @@ export default {
   min-height:100%
 }
 
+.clickImage p {
+  display: none;
+}
+
 .bg-clair {
   background-color: rgba(157, 192, 202, 0.849);
 }

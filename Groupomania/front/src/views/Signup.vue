@@ -6,7 +6,7 @@
     height: 100vh;
   "
   >
-    <div class="col col-12 col-sm-8 col-lg-5 mb-4">
+    <div class="col col-12 col-sm-8 col-lg-5 mb-4 text-center">
       <img src="@/assets/icon-left-font.png" width="250px" class="my-5" />
       <h1 class="mb-5 font-weight-bold">Votre Media à toutes et tous !</h1>
       <form @submit="createAccount">
@@ -27,9 +27,9 @@
           class="mb-1"
         />
 
-        <p class="m-3" id="regexMessage">
-          Votre mot de passe doit contenir au moins une majuscule, un chiffre et
-          8 caractères
+        <p class="m-3" id="regexMessage"> <u>
+           <i class="fas fa-exclamation-triangle" ></i> Votre mot de passe doit contenir au moins une majuscule, un chiffre et
+          8 caractères <i class="fas fa-exclamation-triangle" ></i> </u>
         </p>
 
         <p>
@@ -40,16 +40,15 @@
           />
         </p>
       </form>
+      
     </div>
 
-    <div class="row col-12 col-sm-8 col-lg-5">
+    <div class="row col-12 col-sm-8 col-lg-12 text-center">
       <div class="col align-items-center justify-content-center p-2">
         <strong>
         <p class="my-auto mr-2">Déjà un compte?</p>
-        <MessageRouter msg="Connectez vous!" route="login"></MessageRouter>
+        <MessageRouter msg="Connectez vous!" route="login" class="connectYou"></MessageRouter>
         </strong>
-
-        
       </div>
     </div>
   </div>
@@ -89,3 +88,4 @@ export default {
   },
 };
 </script>
+

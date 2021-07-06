@@ -46,8 +46,8 @@
           {{ message }}
         </p>
 
-        <div class="ml-auto d-flex flex-column text-right low-font-size">
-        <p class="mr-5 border border-warning p-1">   <img  @click="Wrong" src="@/assets/info--v3.png" alt="Pouce baissé" class="pouceImg">  Cliquez l'image pour réagir </p>
+        <div class="clickImage ml-auto d-flex flex-column text-right low-font-size">
+        <p class="clickImage mr-5 border border-warning p-1">   <img @click="Wrong" src="@/assets/info--v3.png" alt="Pouce baissé" class="infoLogo">  Cliquez l'image pour réagir </p>
         </div>
 
       </div>
@@ -172,7 +172,7 @@ export default {
    background-color: #0d80a7;
 }
 
-.pouceImg {
+.pouceImg, .infoLogo {
   width: 45px;
    background-color: #3c9ebe;
    margin: 5px;
@@ -181,5 +181,9 @@ export default {
   }
 }
 
-
+@media screen and (max-width: 640px) {
+.infoLogo {
+display: none;
+}
+}
 </style>

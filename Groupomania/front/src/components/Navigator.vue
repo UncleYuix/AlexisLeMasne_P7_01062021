@@ -6,9 +6,6 @@
         <MessageRouter msg="Mon compte" route="/settings"></MessageRouter>
       </li>
       <li class="nav-item my-1 p-2" id="second">
-        <MessageRouter msg="Mes posts" route="/settings/posts"></MessageRouter>
-      </li>
-      <li class="nav-item my-1 p-2" id="third">
         <MessageRouter msg="Déconnexion" route="/settings/disconnect"></MessageRouter>
       </li>
     </ul>
@@ -41,9 +38,6 @@ export default {
           }
           if (this.isActive==2) {
             this.$el.querySelector("#second").classList="active nav-item my-1 p-2"
-          }
-          if (this.isActive==3) {
-            this.$el.querySelector("#third").classList="active nav-item my-1 p-2"
           }
       })
   }

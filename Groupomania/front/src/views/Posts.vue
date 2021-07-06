@@ -2,6 +2,24 @@
   <div class="pb-5 mt-2 min-height bg-clair">
     <Header/>
 
+   <div class="jumbotron text-center"
+      style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/89.jpg');
+    height: 35vh"></div>
+
+        <aside class="border border-dark rounded-sm text-center">
+          <h1>
+            Structurons notre collectif vers un avenir co-construit et
+            bienveillant
+          </h1>
+          <p class="display-6 p-4"> <em>
+            le forum est soumis à modération, contactez l'administrateur en cas de
+            problèmes ou situation ne respectant </em>
+            <router-link to="/rules"> les règles </router-link>
+          </p>
+        </aside>
+
+
     <div class="container bg-info">
       <PostWall v-for="post in posts"
             :key="post.id"
@@ -20,7 +38,7 @@
  <!-- le footer mérite un components -->
 
      <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted">
+    <footer class="text-center text-lg-start text-muted border-top border-warning">
       <!-- Section: Social media -->
       <section class="d-flex justify-content-center m-5 p-4 border-bottom">
         <div class="me-5 d-none d-lg-block">

@@ -20,6 +20,7 @@
                        type="file" 
                        ref="file" 
                        id="newImage" 
+                       message=""
                        name="imgInput" 
                        class="text-light"
                        @change="selectImg($event)" 

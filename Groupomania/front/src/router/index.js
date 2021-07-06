@@ -4,11 +4,11 @@ import Login from "../views/Login.vue";
 import Signup from "../views/Signup.vue";
 import Posts from "../views/Posts.vue";
 import Post from "../views/Post.vue";
-import AccountPosts from "../views/AccountPosts.vue";
 import Settings from "../views/Settings.vue";
 import NewPost from "../views/NewPost.vue";
 import PostUpdate from "../views/PostUpdate.vue";
 import LogOut from "../views/Disconnection.vue";
+import Rules from "../views/Rules.vue"
 
 Vue.use(VueRouter);
 
@@ -51,11 +51,6 @@ const router = new VueRouter({
       component: Settings
     },
     {
-      path: "/settings/posts",
-      name: "AccountPosts",
-      component: AccountPosts
-    },
-    {
       path: "/settings/disconnect",
       name: "LogOut",
       component: LogOut
@@ -68,9 +63,8 @@ const router = new VueRouter({
     {
       path: "/rules",
       name: "Rules",
-      component: Post
+      component: Rules
 
-      // ça veut pas me faire mon truc de rules en import
     },
   ]
 });

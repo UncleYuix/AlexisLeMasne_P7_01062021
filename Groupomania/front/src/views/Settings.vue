@@ -2,7 +2,7 @@
   <div class="big-height pb-5">
     <Header/>
 
-    <div class="text-light container bg-dark">
+    <div class="text-light container bg-info">
       <div class="row">
 
 <!-- Partie gauche de la vue account settings -->
@@ -66,7 +66,7 @@
                        required 
                        v-model="actualPassword"
                        type="password"/>
-                <button class="btn btn-info mb-3 mx-auto"
+                <button class="btn btn-dark mb-3 mx-auto"
                         @click="uploadUser">
                   Confirmer
                 </button>
@@ -88,10 +88,16 @@
           <hr/>
           <div class="mx-auto my-2">
             <button v-if="messageDelete===''"
-                    class="btn btn-info"
+                    class="btn btn-dark mb-4"
                     @click="deleteUser">
               Supprimer mon compte
             </button>
+
+            <p class="auto bold">
+              Toutes vos données (messages, photos, commentaires, informations seront supprimées)
+            </p>
+            <p class=mx-auto> Conformement à la réglementation en vigueur.
+              </p>
 
             <p v-if="messageDelete!==''"
                 class="text-success">
@@ -147,7 +153,7 @@ export default {
         this.message= "Entrez votre nouveau mot de passe"
       }
       if (this.firstName==="" && this.lastName==="" && this.email==="" && this.password==="" && this.password2==="") {
-        this.message= "No change detected!"
+        this.message= "Pas de Changement!"
       }
       if (this.password !== this.password2) {
           this.message = "Indiquez le password nouveau "
@@ -197,7 +203,7 @@ export default {
         .delete(`/auth/profile/${this.userId}`)
         .then(response => {
           this.messageDelete= response.data.message
-          setTimeout(function () { this.$router.push({ name: 'Signup' }) }.bind(this), 2500)
+          this.$router.push({ name: 'Signup' })
         })
     }
   },

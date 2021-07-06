@@ -6,7 +6,7 @@ const postRoutes = require('./routes/posts');
 const userRoutes = require('./routes/users');
 const path = require('path');
 
-// Utilisation du package helmet pour sécuriser les données de mon header - un middleweare complet pour la sécurité
+// Utilisation du package helmet pour sécuriser les données de mon header - c'est un middleweare très complet pour la sécurité
 app.use(helmet());
 
 // Configuration pour éviter les erreurs CORS
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Bodyparseur étant inclus dans express maintenant, je n'ai pas besoin de l'utiliser
+// Bodyparseur étant inclus dans la nouvelle version express maintenant, je n'ai pas besoin de l'utiliser
 app.use(bodyParser.json());
 
 // Permet de charger les images dans le dossier 'images'

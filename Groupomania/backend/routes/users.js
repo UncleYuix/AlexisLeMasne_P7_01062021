@@ -10,12 +10,20 @@ const bouncer = require('express-bouncer')(10000, 900000, 2); // Protection cont
 // le profil par le token pour la sécurité
 // les routes pour modifier (put) ou delete pour supprimer
 
+// Pour créer un compte et se register j'utilise ses routes :
+router.post('/signup', userCtrl.signup); 
+router.post('/login', bouncer.block, userCtrl.login); 
 
-router.post('/signup', userCtrl.signup); // IS OK
-router.post('/login', bouncer.block, userCtrl.login); // IS OK
-router.get('/profile/:token', auth, userCtrl.profile); // IS OK
-router.get('/profile/id/:id', auth, userCtrl.profileComment); // IS OK
-router.delete('/profile/:id', auth, userCtrl.deleteUser); // IS OK
-router.put('/profile/:id', auth, userCtrl.modifyUser);// IS OK
+// permet d'avoir le token de l'utilisateur
+router.get('/profile/:token', auth, userCtrl.profile); 
+
+//permet d'avoir l'id de l'users
+router.get('/profile/id/:id', auth, userCtrl.profileComment); 
+
+// delete l'user
+router.delete('/profile/:id', auth, userCtrl.deleteUser); 
+
+// modif de l'user
+router.put('/profile/:id', auth, userCtrl.modifyUser);
 
 module.exports = router;
