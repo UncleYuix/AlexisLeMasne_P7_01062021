@@ -114,20 +114,3 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
-
-.ninety-width {
-  width:90%
-}
-
-.fifty-width {
-  width: 50%
-}
-
-@media all and (max-width: 750px) {
-  h2 {
-    font-size: 30px;
-  }
-}
-</style>

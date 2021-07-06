@@ -18,6 +18,7 @@ import Header from './components/Header.vue'
 import PostWall from './components/PostWall.vue'
 import Commentaries from './components/Commentaries.vue'
 import Navigator from './components/Navigator.vue'
+import Footer from './components/Footer.vue'
 
 
 
@@ -39,6 +40,7 @@ Vue.component("Header", Header);
 Vue.component("PostWall", PostWall);
 Vue.component("Commentaries", Commentaries);
 Vue.component("Navigator", Navigator);
+Vue.component("Footer", Footer);
 
 
 

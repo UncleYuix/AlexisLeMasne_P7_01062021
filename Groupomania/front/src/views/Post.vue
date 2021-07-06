@@ -15,14 +15,9 @@
             @post-deleted="updatePost">
       </PostWall>
 
-<!-- Si il n'y a pas de commentaire -->
-      <p v-if="commentaries.length === 0"
-         class="h3 pt-3 w-75">
-        Rédigez le 1er commentaire !
-      </p>
 
 <!-- Formulaire pour l'ajout de commentaire -->
-      <div class="d-flex flex-row justify-content-between align-items-end text-light border border-light rounded-lg p-3 mb-3 w-75 bg-info">
+      <div class="d-flex flex-row justify-content-between align-items-end text-light border border-light rounded-lg p-3 mb-3 bg-info">
 
         <div class="d-flex flex-column container">
           <form class="row">
@@ -32,7 +27,7 @@
             </label>
             <div class="w-100"></div>
             <textarea class="rounded-lg text-area-height inside-padding col-11"
-                      placeholder=" tapez votre commentaire ici !"
+                      placeholder=""
                       maxlength="250"
                       minlength="1"
                       v-model="newComment"
@@ -139,9 +134,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.min-height {
-  min-height:100%
+
+
+.text-area-height {
+  min-height: 119px;
+  max-height: 120px;
 }
+
+
 
 .clickImage p {
   display: none;
@@ -151,26 +151,10 @@ export default {
   background-color: rgba(157, 192, 202, 0.849);
 }
 
-.sixty-five-width {
-  width:65%
-}
-
-.thirty-width {
-  width: 30%
-}
-
-.text-area-height {
-  min-height: 119px;
-  max-height: 120px;
-}
-
-.inside-padding {
-  padding: 5px;
-}
-
 @media all and (max-width: 750px) {
   label {
     font-size:21px;
   }
+
 }
 </style>

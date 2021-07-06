@@ -22,7 +22,7 @@
         <FormInput idLinked="VotreEmail" v-model="email" />
 
         <FormInput
-          idLinked="MotdePasseGroupomania"
+          idLinked="Password"
           v-model="password"
           class="mb-5"
         />

@@ -94,9 +94,9 @@
             </button>
 
             <p class="auto bold">
-              Toutes vos données (messages, photos, commentaires, informations seront supprimées)
+              <i class="fas fa-info-circle"></i> Toutes vos données (messages, photos, commentaires, informations seront supprimés)
             </p>
-            <p class=mx-auto> Conformement à la réglementation en vigueur.
+            <p class=mx-auto> Conformement à la réglementation en vigueur. <i class="fas fa-info-circle"></i>
               </p>
 
             <p v-if="messageDelete!==''"

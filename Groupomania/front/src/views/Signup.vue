@@ -21,7 +21,7 @@
         />
 
         <FormInput
-          idLinked="password"
+          idLinked="Password"
           v-model="password"
           patternLinked="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           class="mb-1"
