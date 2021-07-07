@@ -207,7 +207,7 @@ exports.modifyUser = (req, res, next) => {
               ) {
                 return res
                   .status(500)
-                  .json({ message: "This email is already used" });
+                  .json({ message: "email déjà utilisé" });
               }
 
               // Modification de profil SANS changement d'email
