@@ -1,4 +1,11 @@
-<!-- Seulement pour les posts sans commentaires (genre dans le fil d'actu) -->
+<!-- Ce components sert a afficher les contenu "conditionnel", ainsi on a les bouton edit ou delete si user qui a post ou admin
+on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
+
+<!--- le chargement de l'image ici se fait par le router like to route --->
+
+
+
+
 <template>
   <div
     class="text-light d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-danger m-3 bg-info4"
@@ -43,12 +50,17 @@
         </button>
       </div>
     </div>
+
+<!-- Le chargement de l'image  -->
+
+    
     <div class="image text-center">
       <router-link :to="route">
         <img :src="image" alt="Image du post" class="not-too-big" />
       </router-link>
     </div>
 
+<!-- les pouces -->
     <div
       class="d-flex flex-row text-center py-2 bg-info3"
     >
@@ -80,6 +92,8 @@
         {{ message }}
       </p>
     </div>
+
+    <!-- l'icone info  -->
     <div class="clickImage border border-warning p-1">
       <i
         class="infoLogo fas fa-info-circle"
@@ -134,6 +148,8 @@ export default {
     };
   },
   mounted() {
+
+    // affichage du nombre de like 
     this.$axios.get(`/posts/likedislike/${this.postId}`).then((response) => {
       (this.likes = response.data.likes),
         (this.dislikes = response.data.dislikes);
@@ -145,12 +161,15 @@ export default {
     createMessage() {
       this.message = response.data.message;
     },
+
+    // fonction pour delete un post avec la requete axios
     deletePost() {
       this.$axios
         .delete(`/posts/${this.postId}`)
         .then(this.$emit("post-deleted"))
         .catch((error) => (this.message = error));
     },
+    // fonctions pour ajouter un like / dislike avec la requete post axios
     addLike() {
       this.$axios
         .post(`/posts/${this.postId}/like`, {
@@ -177,6 +196,8 @@ export default {
         })
         .catch((error) => (this.message = error));
     },
+
+    // fonction pour faire une blague 
     Wrong() {
       alert("j'avais bien spécifié l'IMAGE pas l'icône.  - le Webmaster");
     },

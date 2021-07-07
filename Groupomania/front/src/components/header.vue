@@ -1,4 +1,6 @@
 <template>
+
+<!-- il s'agit d'un composants qui s'ajoutera sur les views de type header -->
   <header
     class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info"
   >
