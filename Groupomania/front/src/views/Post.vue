@@ -2,6 +2,9 @@
   <div class="pb-5 min-height bg-clair">
     <Header />
 
+    <!-- On charge ici le contenu d'un id de post pour afficher les commentaires  -->
+
+    <!-- v-if si on supprime le post   -->
     <div
       class="container d-flex flex-column align-items-center border border-dark bg-info3"
       v-if="deleted === false"
@@ -41,6 +44,8 @@
           </form>
         </div>
 
+        <!-- création de bouton retour à l'accueil et la fonction click pour poster le commentaire ajouté  -->
+
         <div>
           <router-link to="/Posts" class="btn btn-dark btn mb-2 ">
             Accueil
@@ -65,19 +70,14 @@
     </div>
 
     <!-- Si un commentaire est supprimé -->
-    <div
-      v-else
-      class="text-success border border-success rounded-lg  container py-3 mt-4"
-    >
+    <div v-else class="border border-dark rounded-lg  container py-3 mt-4">
       <p class="mb-3">
         {{ message }}
       </p>
 
-      <MessageRouter
-        msg="Retour aux posts"
-        route="/posts"
-        class="text-success"
-      ></MessageRouter>
+      <router-link to="/Posts" class="btn btn-primary ml-3">
+        Retour à l'accueil
+      </router-link>
     </div>
   </div>
 </template>
@@ -104,6 +104,9 @@ export default {
     }
   },
   mounted() {
+    // l'administrateur à le droit de supprimer tout les posts , on vérifie donc si l'user est bien l'admin
+    // dans ce cas là, il a la croix rouge
+
     this.$axios
       .get(`auth/profile/${sessionStorage.getItem("token")}`)
       .then((response) => {
@@ -124,6 +127,7 @@ export default {
       this.message = "Post bien supprimé!";
     },
     sendComment() {
+      // request pour l'envoi du commentaire puis réponse et publication du message
       this.$axios
         .post(`/posts/${this.postId}/comments`, {
           userId: `${this.userId}`,

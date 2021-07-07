@@ -1,5 +1,9 @@
 <template>
   <div class="bg-info">
+
+
+<!-- du contenu stateless pour habiller un peu le site  -->
+    
     <article>
       <div class="container text-center border border-info mt-5 p-5 bg-white">
         <h1 class="titleRules">

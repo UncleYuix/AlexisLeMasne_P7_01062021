@@ -43,13 +43,14 @@
         </button>
       </div>
     </div>
-
-    <router-link :to="route">
-      <img :src="image" alt="Image du post" class="not-too-big m-auto" />
-    </router-link>
+    <div class="image text-center">
+      <router-link :to="route">
+        <img :src="image" alt="Image du post" class="not-too-big" />
+      </router-link>
+    </div>
 
     <div
-      class="d-flex flex-row justify-content-between py-2 align-items-center bg-info3"
+      class="d-flex flex-row text-center py-2 bg-info3"
     >
       <div class="mr-auto d-flex">
         <div
@@ -75,7 +76,7 @@
         </div>
       </div>
 
-      <p v-if="message">
+      <p class="pr-5 font-weight-bold" v-if="message">
         {{ message }}
       </p>
     </div>
@@ -187,6 +188,7 @@ export default {
 .not-too-big {
   max-width: 100%;
   max-height: 800px;
+  text-align: center;
 }
 
 .Tiny {

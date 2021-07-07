@@ -6,6 +6,9 @@
     height: 100vh;
   "
   >
+
+  <!-- Formulaire pour le login au compte et homepage en premiere visite ou déconnexion  -->
+
     <div class="col col-12 col-sm-8 col-lg-5 text-center">
       <img src="@/assets/icon-left-font.png" width="250px" class="my-5" />
       <h1 class="mb-5 font-weight-bold">
@@ -44,7 +47,7 @@
 </template>
 
 <script>
-// import loginJs from "./js/loginJs.js";
+// request post pour login + storage utilisateurs, info bearer + token prise + erreur si utilisateurs pas existant ou faux + réinitialisation users
 
 export default {
   data() {

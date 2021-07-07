@@ -2,6 +2,12 @@
   <div class="big-height pb-5">
     <Header/>
 
+<!-- On crée deux partie 50% / 50% pour avoir la mise a jour du post -->
+
+
+<!-- résumé du post  -->
+
+
     <div class="container border border-dark rounded-lg d-flex flex-row p-3 mt-5 bg-info">
       <div class="resume w-50">
         <p> Avant </p>
@@ -10,6 +16,7 @@
         <img :src="post.imageUrl" class="not-too-big" alt="Post img"/>
       </div>
 
+<!-- la partie modifiable renvoi au components de modification   -->
       <div class="w-50 ml-1">
         <p> Après</p>
 
@@ -22,6 +29,7 @@
           </FormInputSettings>
         </div>
 
+<!-- On suit la méthodo boostrap   -->
         <form class="mb-4" enctype="multipart/form-data">
           <label class="h2" for="imgInput"><u>Image ? </u></label><br/>
           <input required 
@@ -29,32 +37,26 @@
                   ref="file" 
                   id="newImage" 
                   name="imgInput" 
-                  class="text-light"
+                  class=""
                   enctype="multipart/form-data"
                   @change="selectImg($event)"/>
         </form>
 
-
+<!-- les deux boutons habituels pour la modification ou annuler la modif  -->
         <button class="btn btn-dark"
                 @click="updatePost"
                 v-if="!messageOk">
           Modifier
         </button>
 
-        <router-link to="/Posts"  class="btn btn-primary btn-lg ml-2">  Retour </router-link>
+        <router-link to="/Posts"  class="btn btn-primary btn ml-2">  Retour </router-link>
 
         <div v-if="messageOk">
           <h3 class="font-weight-bold h2 mb-4 text-white">
             {{ messageOk }}
           </h3>
 
-          <router-link
-                  name="back-to-posts"
-                  :class="btnClass"
-                  to="/posts"
-                  type="button">
-            Retour à l'accueil
-          </router-link>
+
 
           <div class="mt-4">
             <h4>{{ newTitle }}</h4>
@@ -105,6 +107,9 @@ export default {
       })    
   },
   methods: {
+
+    // si tout va bien, le fichier est envoyé au backend et rejoins les posts existants
+
     updatePost() {
       if (this.newImage===null) this.messageError= "Merci de choisir une image"
       else {
@@ -142,6 +147,8 @@ hr {
   max-height: 800px;
   background-position : center;
 }
+
+// en écran plus petit, on enlêve la "preview" ou "postview" pour une meilleur UX
 
 @media screen and (max-width: 640px) {
 .resume {

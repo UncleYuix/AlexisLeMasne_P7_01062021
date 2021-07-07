@@ -13,6 +13,10 @@
 </template>
 
 <script>
+
+// l'idée est d'avoir un vrai component pour les request du formulaire login / signin
+
+
 export default {
   name: "FormInput",
   props: {

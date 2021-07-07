@@ -1,12 +1,16 @@
 <template>
   <div class="pb-5 big-height">
     <Header />
+
+<!-- 
+    création d'un post  -->
+
     <div class="backNewPost bg-info3">
       <div class="container pt-5 pb-5 bg-info4">
         <div class="row">
           <div :class="borderClass">
             <form @submit.prevent="createPost">
-              <h2 :class="titleClass"><u>Nouvel Publication</u></h2>
+              <h2 :class="titleClass"><u>Nouvelle Publication</u></h2>
 
               <div class="mb-4 d-flex flex-column px-3">
                 <div class="text-left">
@@ -16,7 +20,9 @@
                   <FormInput idLinked="Title" v-model="title"></FormInput>
                 </div>
 
-                <form class="text-left" enctype="multipart/form-data">
+
+<!-- methodo boostrapvue  -->
+                <form class="text" enctype="multipart/form-data">
                   <label for="imgInput">Lien de l'image:</label><br />
                   <input
                     required
@@ -32,25 +38,20 @@
                 </form>
               </div>
 
-              <h3 v-if="message" class="font-weight-bold h2 mb-4 text-success">
-                {{ message }}
+<!-- Post crée ?  -->
+              <h3 v-if="message" class="font-weight-bold h2 mb-4 text-danger">
+                {{ message }} - merci !
               </h3>
 
-              <router-link
-                v-if="message"
-                name="back-to-posts"
-                :class="btnClass"
-                to="Posts"
-                type="button"
-              >
-                Retour à l'accueil
-              </router-link>
+ 
+      
 
               <div v-if="message" class="mt-4">
                 <h4>{{ title }}</h4>
                 <img :src="imageSrc" class="img-fluid" alt="Image uploadé" />
               </div>
 
+<!--les deux Boutons  -->
               <button v-if="message === ''" :class="btnClass" type="submit">
                 Publier
               </button>
@@ -75,19 +76,25 @@ export default {
       userId: "",
       message: "",
       btnClass: "btn btn-info",
-      titleClass: "font-weight-bold h1 mb-4",
+      titleClass: "font-weight-bold h1 mb-4 mt-3",
       borderClass:
-        "container fifty-width border border-light p-3 text-light pb-4 col-10 col-sm-8 col-lg-6",
+        "container border border-light p-3 text-light pb-4 col-10 col-sm-8 col-lg-6",
       imageTitle: "",
       imageSrc: null,
     };
   },
+
+  // le kick si pas logued
+
   created() {
     if (sessionStorage.getItem("token") === null) {
       this.$router.push({ name: "Login" });
     }
   },
   methods: {
+
+    // On récupère un token puis request post d'une publication > reponse avec le l'upload de l'image backend et bdd et ajout
+
     createPost(e) {
       e.preventDefault();
       const myForm = new FormData();
@@ -104,10 +111,10 @@ export default {
             .post("posts/", myForm)
             .then((responses) => {
               (this.message = responses.data.message),
-                (this.btnClass = "btn btn-success"),
-                (this.titleClass = "font-weight-bold h1 mb-4 text-success"),
+                (this.btnClass = "btn"),
+                (this.titleClass = "font-weight-bold h1 mb-4"),
                 (this.borderClass =
-                  "container fifty-width border border-success p-3 text-light pb-4"),
+                  "container border border-success p-3 text-light pb-4"),
                 (this.imageSrc = responses.data.imagePath),
                 (this.imageTitle = this.title);
             })

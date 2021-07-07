@@ -1,4 +1,5 @@
 // Il nous faut une nouvelle importation. Il s'agit du package fs de Node (pour la suppression du fichier image)
+
 const fs = require("fs");
 
 var conn = require("../mySqlConfig");

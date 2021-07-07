@@ -6,6 +6,9 @@
     height: 100vh;
   "
   >
+
+ <!-- Formulaire pour créer un compte  -->
+
     <div class="col col-12 col-sm-8 col-lg-5 mb-4 text-center">
       <img src="@/assets/icon-left-font.png" width="250px" class="my-5" />
       <h1 class="mb-5 font-weight-bold">Votre Media à toutes et tous !</h1>
@@ -43,6 +46,10 @@
           />
         </p>
       </form>
+
+      <!-- Renvoi au Login  -->
+
+
       <div class="row col-12 col-sm-8 col-lg-12 text-center">
         <div class="col align-items-center justify-content-center p-2">
           <strong>
@@ -60,6 +67,10 @@
 </template>
 
 <script>
+
+// requête post a axios pour connexion à la page Posts ( sans avoir à faire un login pour une création de compte )
+// Storage du Nom_Prenom
+ 
 export default {
   data() {
     return {
