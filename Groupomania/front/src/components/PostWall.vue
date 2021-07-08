@@ -8,12 +8,12 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
 
 <template>
   <div
-    class="text-light d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-danger m-3 bg-info4"
+    class="text-light d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-info m-3 bg-info4"
   >
     <div
-      class="py-3 d-flex justify-content-between align-items-center border border-warning p-3 m-2 bg-info2"
+      class="py-3 d-flex justify-content-between align-items-center text-center border border-info p-3 m-2 bg-info2"
     >
-      <h3>{{ title }}</h3>
+      <h3><strong>{{ title }} </strong> </h3>
 
       <div class="d-flex flex-column">
         <!-- On vérifie les conditions d'affichage du bouton modify -->
@@ -66,7 +66,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
     >
       <div class="mr-auto d-flex">
         <div
-          class="d-flex flex-row align-items-center border border-warning pr-2"
+          class="d-flex flex-row align-items-center border border-info pr-2"
         >
           <i
             class="pouceImg fas fa-thumbs-up pl-3"
@@ -77,7 +77,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
         </div>
 
         <div
-          class="d-flex flex-row align-items-center border border-warning pr-2"
+          class="d-flex flex-row align-items-center border border-info pr-2"
         >
           <i
             class="pouceImg fas fa-thumbs-down pl-3"
@@ -94,7 +94,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
     </div>
 
     <!-- l'icone info  -->
-    <div class="clickImage border border-warning p-1">
+    <div class="clickImage border border-info p-1">
       <i
         class="infoLogo fas fa-info-circle"
         @click="Wrong"
@@ -217,14 +217,14 @@ export default {
 }
 
 .bg-info2 {
-  background-color: #5bc0de;
+  background-color: #6ca1b1;
 }
 
 .bg-info3 {
-  background-color: #1a7f9e;
+  background-color: #7da5b1;
 }
 .bg-info4 {
-  background-color: #2b6c81;
+  background-color: #8db4c0;
 }
 
 .btn-info5 {

@@ -14,7 +14,7 @@
 
 <script>
 
-// l'idée est d'avoir un vrai component pour les request du formulaire login / signin
+// l'idée est d'avoir un vrai component pour les request du formulaire login / signin / setting
 
 
 export default {

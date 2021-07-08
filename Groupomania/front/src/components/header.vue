@@ -2,7 +2,7 @@
 
 <!-- il s'agit d'un composants qui s'ajoutera sur les views de type header -->
   <header
-    class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info"
+    class="border border-dark d-flex flex-row justify-content-between px-3 mb-4 bg-info2"
   >
     <!-- Le logo qui permettra de retourner à /posts -->
     <div class="col-4 d-flex align-items-center justify-content-start px-0">
@@ -20,7 +20,7 @@
     <div
       class="d-flex col-4 justify-content-center align-items-center text-center"
     >
-      <p class="text-warning" id="name">
+      <p class="text-dark" id="name">
         <i class="fas fa-anchor"></i> Bonne navigation {{ fullName }} !
         <i class="fas fa-anchor"></i>
       </p>

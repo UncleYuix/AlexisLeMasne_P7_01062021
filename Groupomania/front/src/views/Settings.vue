@@ -2,7 +2,7 @@
   <div class="big-height">
     <Header />
 
-    <div class="text-light container bg-info text-center">
+    <div class="text-light container bg-info2 text-center">
       <div class="col-12 p-3 d-flex flex-column">
         <div class="w-100">
           <h2 class="mr-auto"><u>Mon compte :</u></h2>

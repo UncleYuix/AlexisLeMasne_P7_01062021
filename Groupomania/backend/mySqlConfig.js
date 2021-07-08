@@ -1,6 +1,8 @@
 const mysql = require('mysql');
 require('dotenv').config()
 
+// Pour l'évaluation, l'idée sera de faire un dump depuis workbench avec Server > Data export, l'évaluateur devra donc faire un import 
+
 const connection = mysql.createPool({
     host: process.env.DB_HOST,
     port: '3306',

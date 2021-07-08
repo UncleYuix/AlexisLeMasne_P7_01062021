@@ -25,7 +25,7 @@
     </aside>
 
     <!-- On donne les infos à PostWall qui se chargera comme components de s'occuper du contenu de l'app + mise en forme du contenu mysql  -->
-    <div class="container bg-info">
+    <div class="container bg-info6">
       <PostWall
         v-for="post in posts"
         :key="post.id"
@@ -94,6 +94,11 @@ export default {
 <style scoped lang="scss">
 .bg-clair {
   background-color: rgba(157, 192, 202, 0.849);
+}
+
+.bg-info6
+{
+  background-color:#98c6cd ;
 }
 
 @media screen and (max-width: 640px) {
