@@ -5,10 +5,10 @@
 <!-- On crée deux partie 50% / 50% pour avoir la mise a jour du post -->
 
 
-<!-- résumé du post  -->
+<!-- résumé du post ( la partie left ) -->
 
 
-    <div class="container border border-dark rounded-lg d-flex flex-row p-3 mt-5 bg-info">
+    <div class="container border border-dark rounded-lg d-flex flex-row p-3 mt-5 bg-info4">
       <div class="resume w-50">
         <p> Avant </p>
     
@@ -16,7 +16,7 @@
         <img :src="post.imageUrl" class="not-too-big" alt="Post img"/>
       </div>
 
-<!-- la partie modifiable renvoi au components de modification   -->
+<!-- la partie modifiable renvoi au components de modification (partie right)   -->
       <div class="w-50 ml-1">
         <p> Après</p>
 

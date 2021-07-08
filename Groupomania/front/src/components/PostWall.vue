@@ -8,19 +8,19 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
 
 <template>
   <div
-    class="text-light d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-info m-3 bg-info4"
+    class="d-flex flex-column mx-auto mb-5 py-3 px-4 w-75 border border-info m-3 bg-info4"
   >
     <div
-      class="py-3 d-flex justify-content-between align-items-center text-center border border-info p-3 m-2 bg-info2"
+      class="py-3 d-flex justify-content-between align-items-center text-center border-info p-3 m-2 bg-info2"
     >
-      <h3><strong>{{ title }} </strong> </h3>
+      <h2><strong>{{ title }} </strong> </h2>
 
       <div class="d-flex flex-column">
         <!-- On vérifie les conditions d'affichage du bouton modify -->
         <router-link :to="routeUpdate">
           <button
             v-if="postUserId === userId"
-            class="Gros btn btn-info5 mb-2"
+            class="Gros btn text-light btn-info5 mb-2"
             :id="postId"
           >
             Modifier
@@ -30,13 +30,13 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
             class="Tiny btn btn-info5 mb-2"
             :id="postId"
           >
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-edit"></i> !
           </button>
         </router-link>
         <!-- On vérifie les conditions d'affichage du bouton delete -->
         <button
           v-if="role === 'admin' || postUserId === userId"
-          class="Gros btn btn-info5"
+          class="Gros btn text-light btn-info5"
           @click="deletePost"
         >
           Supprimer
@@ -46,7 +46,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
           class="Tiny btn btn-info5 mb-2"
           @click="deletePost"
         >
-          <i class="far fa-trash-alt"></i>
+          <i class="far fa-trash-alt"> !</i>
         </button>
       </div>
     </div>
@@ -73,7 +73,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
             alt="Pouce up"
             @click="addLike"
           ></i>
-          <p class="ml-1">{{ likes }}</p>
+          <p class="ml-1 text-dark">{{ likes }}</p>
         </div>
 
         <div
@@ -84,7 +84,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
             alt="Pouce down"
             @click="addDislike"
           ></i>
-          <p class="ml-1">{{ dislikes }}</p>
+          <p class="ml-1 text-dark">{{ dislikes }}</p>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ on a aussi les icones et nombres likes ainsi que le bouton "info"  -->
     </div>
 
     <!-- l'icone info  -->
-    <div class="clickImage border border-info p-1">
+    <div class="clickImage border border-info p-1 text-dark">
       <i
         class="infoLogo fas fa-info-circle"
         @click="Wrong"
@@ -221,14 +221,14 @@ export default {
 }
 
 .bg-info3 {
-  background-color: #7da5b1;
+  background-color: #a4bcc3;
 }
 .bg-info4 {
   background-color: #8db4c0;
 }
 
 .btn-info5 {
-  background-color: #0d80a7;
+  background-color: #064053;
 }
 
 .pouceImg,
@@ -254,7 +254,7 @@ export default {
   }
   .Tiny {
     display: block;
-    color: rgb(97, 58, 58);
+    color: rgb(233, 10, 10);
     font-size: 10px;
   }
 }

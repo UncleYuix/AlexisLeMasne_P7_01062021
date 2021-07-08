@@ -10,19 +10,19 @@
       </div>
       <div>
         <a href="https://www.facebook.com" class="me-4 text-reset pl-5">
-          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-facebook-f" alt="icone facebook"> </i> !
         </a>
         <a href="https://www.twitter.com" class="me-4 text-reset pl-5">
-          <i class="fab fa-twitter"></i>
+          <i class="fab fa-twitter" alt="icone twitter"></i> !
         </a>
         <a
           href="https://www.https://www.instagram.com/?hl=fr"
           class="me-4 text-reset pl-5"
         >
-          <i class="fab fa-instagram"></i>
+          <i class="fab fa-instagram" alt="icone instagram"></i> !
         </a>
         <a href="https://www.linkedin.com" class="me-4 text-reset pl-5">
-          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-linkedin" alt="icone linkedin"> </i> !
         </a>
       </div>
     </section>
@@ -35,9 +35,9 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h5 class="text-uppercase fw-bold mb-4">
               <i class="fas fa-building"></i> Groupomania
-            </h6>
+            </h5>
             <p>
               Entreprise spécialisé dans la grande distribution, nous sommes
               riches de plus de 600 colaborateurs. Notre mentra est de

@@ -109,11 +109,12 @@
 
           <p class="auto bold text-center">
             <i class="fas fa-info-circle"></i> Toutes vos données (messages,
-            photos, commentaires, informations seront supprimés)
+            photos, commentaires, informations) seront supprimées
           </p>
           <p class="mx-auto text-center">
-            Conformement à la réglementation en vigueur.
+            Conformement à la réglementation en vigueur. <a href="https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on" target="_blank" alt="lien RGPD"> (cf loi RGPD ) </a>
           </p>
+          
 
           <p v-if="messageDelete !== ''" class="text-success">
             {{ messageDelete }}
@@ -250,7 +251,7 @@ p {
 }
 
 span {
-  color: greenyellow;
+  color: black;
   font-weight: 600;
 }
 

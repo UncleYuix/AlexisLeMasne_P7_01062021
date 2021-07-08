@@ -10,7 +10,7 @@
  <!-- Formulaire pour créer un compte  -->
 
     <div class="col col-12 col-sm-8 col-lg-5 mb-4 text-center">
-      <img src="@/assets/icon-left-font.png" width="250px" class="my-5" />
+      <img src="@/assets/icon-left-font.png" width="250px" class="my-5" alt="icon Groupomania"/>
       <h1 class="mb-5 font-weight-bold">Votre Media à toutes et tous !</h1>
       <form @submit="createAccount">
         <FormInput idLinked="Jean-Philippe" v-model="firstName" />
@@ -32,9 +32,9 @@
 
         <p class="m-3" id="regexMessage">
           <u>
-            <i class="fas fa-exclamation-triangle"></i> Votre mot de passe doit
+            <i class="fas fa-exclamation-triangle" alt="icon danger"></i> Votre mot de passe doit
             contenir au moins une majuscule, un chiffre et 8 caractères
-            <i class="fas fa-exclamation-triangle"></i>
+            <i class="fas fa-exclamation-triangle" alt="icon danger"></i>
           </u>
         </p>
 
@@ -43,6 +43,7 @@
             type="submit"
             value="S'inscrire"
             class="btn btn-info border mb-3"
+            alt="bouton inscrire"
           />
         </p>
       </form>
@@ -58,6 +59,7 @@
               msg="Connectez vous!"
               route="login"
               class="connectYou"
+              alt="bouton connectez vous"
             ></MessageRouter>
           </strong>
         </div>

@@ -3,7 +3,8 @@ const router = express.Router();
 
 const userCtrl = require("../controllers/user");
 const auth = require("../middleware/auth");
-const bouncer = require("express-bouncer")(10000, 900000, 2); // Protection contre les attaques Bruteforce
+const bouncer = require("express-bouncer")(10000, 900000, 2); 
+// Protection contre les attaques Bruteforce
 
 // mon router à donc toutes les routes pour créer et loguer un utilisateur
 // le profil par le token pour la sécurité

@@ -33,7 +33,7 @@
       <button class="Gros btn btn-dark m-2" @click="backToLogin">
         Se déconnecter
       </button>
-      <button class="Tiny btn btn-danger ml-2 " @click="backToLogin">
+      <button class="Tiny btn btn-dark ml-2 " @click="backToLogin">
         X
       </button>
       <div class="rightYellow m-2">
