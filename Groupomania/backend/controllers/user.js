@@ -1,13 +1,10 @@
-// npm install --save bcrypt
 const bcrypt = require("bcrypt");
-// npm install --save jsonwebtoken
 const jwt = require("jsonwebtoken");
 
 var conn = require("../mySqlConfig");
 require("dotenv").config();
 
 // Pour créer un compte :  un token qui éxpire en 24h est crée  - par défault le compte est basic et non admin
-// si les regex sont mauvais - même si le front le dira : "password invalide"
 
 exports.signup = (req, res, next) => {
   if (

@@ -10,7 +10,7 @@ const MIME_TYPES = {
 };
 
 const storage = multer.diskStorage({
-  // Nous créons une constante storage , à passer à multer comme configuration, qui contient la logique nécessaire pour indiquer à multer où enregistrer les fichiers entrants
+  // Nous créons une constante storage , à passer à multerpour indiquer à multer où enregistrer les fichiers entrants
   // La fonction destination indique à multer d'enregistrer les fichiers dans le dossier images (cf le callback)
   destination: (req, file, callback) => {
     callback(null, "images");
@@ -29,4 +29,4 @@ const storage = multer.diskStorage({
 // Nous exportons ensuite l'élément multer entièrement configuré, lui passons notre constante storage et
 // lui indiquons que nous gérerons uniquement les téléchargements de fichiers image
 module.exports = multer({ storage: storage }).any("image");
-// Le .any() permet d'envoyer x file avec x >= 0. Avait on avait single() qui n'en accepte que un -> pb
+
