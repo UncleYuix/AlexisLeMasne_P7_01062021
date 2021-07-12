@@ -18,7 +18,6 @@ exports.signup = (req, res, next) => {
   ) {
     bcrypt.hash(req.body.password, 10, (nok, hash) => {
       if (nok) return res.status(500).json({ error: nok });
-      // Maintenant, on a notre hash en promise
       const time = new Date();
       conn.query(
         `INSERT INTO users (firstName, lastName, email, password, role, dateInscription, lastUpdate) 
