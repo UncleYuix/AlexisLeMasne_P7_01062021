@@ -5,8 +5,7 @@ Bonjour,
 Afin d'initialiser le projet :
 Pour le back :
 1. aller dans Groupomania > Backend 
-
-2. Rennomer le fichier exemple.env en .env
+2. Rennomer le fichier exemple.env en .env puis rentrer les informations suivantes :
 
 DB_HOST= localhost (ou autre si vous n'utilisez pas cette méthode)
 DB_USER= votre user mysql (par défault root)
