@@ -2,9 +2,6 @@
 
 Bonjour,
 
-Sur ce projet est utilisé :
-nodejs - express - mysql - vue.js 
-
 Afin d'initialiser le projet :
 Pour le back :
 1. aller dans Groupomania > Backend 
