@@ -116,7 +116,7 @@
           </p>
           
 
-          <p v-if="messageDelete !== ''" class="text-success">
+          <p v-if="messageDelete !== ''" class="text-warning">
             {{ messageDelete }}
           </p>
         </div>

@@ -25,7 +25,7 @@
           @click="deleteComment"
         />
         <p class="text-right">Date : {{ time.split("T")[0] }}</p>
-        <p class="text-right">Heure : {{ time.split("T")[1].split(".")[0] }}</p>
+        <p class="text-right">Heure : {{ new Date(this.time).toLocaleTimeString() }}</p>
       </div>
     </div>
 

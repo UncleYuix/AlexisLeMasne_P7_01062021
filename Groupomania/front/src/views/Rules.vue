@@ -36,7 +36,7 @@
           Protection de la vie privée <i class="fas fa-key"></i>
         </h2>
         <p class="textTitle">
-          La communauté du Forum de Groupomania est une communauté de salariéss.
+          La communauté du Forum de Groupomania est une communauté de salariés.
           Les utilisateurs sont pour autant invités à ne pas divulguer leurs
           adresses et numéros de téléphone, et ceux d’autres utilisateurs, sur
           le Forum. Merci d'avoir pris de votre temps pour lire ces quelques

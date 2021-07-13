@@ -41,7 +41,7 @@
             <p>
               Entreprise spécialisé dans la grande distribution, nous sommes
               riches de plus de 600 colaborateurs. Notre mentra est de
-              l'éxigence et une grande qualité des conditions de travail.
+              l'éxigence dans des conditions de travail optimale.
             </p>
           </div>
 

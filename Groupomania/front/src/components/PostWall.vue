@@ -206,6 +206,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+ h2 strong {
+   font-size: 0.8em;
+ }
 .not-too-big {
   max-width: 100%;
   max-height: 800px;

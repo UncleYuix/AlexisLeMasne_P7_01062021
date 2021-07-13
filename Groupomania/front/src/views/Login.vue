@@ -47,7 +47,7 @@
 </template>
 
 <script>
-// request post pour login + storage utilisateurs, info bearer + token prise + erreur si utilisateurs pas existant ou faux + réinitialisation users
+// request post pour login + storage utilisateurs, info bearer + token prise + erreur si utilisateurs pas existant ou faux 
 
 export default {
   data() {

@@ -25,7 +25,7 @@
 
       <!-- Formulaire pour l'ajout de commentaire -->
       <div
-        class="d-flex flex-row justify-content-between align-items-end text-light border border-light rounded-lg p-3 mb-3 bg-info"
+        class="d-flex flex-row justify-content-between align-items-end text-light border border-light rounded-lg p-3 mb-3 bg-info2"
       >
         <div class="d-flex flex-column container">
           <form class="row">

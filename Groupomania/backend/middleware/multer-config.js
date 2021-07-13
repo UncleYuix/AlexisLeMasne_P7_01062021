@@ -1,4 +1,3 @@
-// npm install --save multer
 const multer = require("multer");
 
 // Constante dictionnaire de type MIME, celà permet de savoir quel fichier sont supportés et utilisés
@@ -18,7 +17,6 @@ const storage = multer.diskStorage({
 
   // La fonction filename indique à multer d'utiliser le nom d'origine, de remplacer les espaces par des underscores et d'ajouter un timestamp Date.now() comme nom de fichier.
   // Elle utilise ensuite la constante dictionnaire de type MIME pour résoudre l'extension de fichier appropriée
-  // Le .split('.')[0] me permet de retirer la partie .jpeg, .jpg ou .png du fichier, vu qu'on le remet apres
   filename: (req, file, callback) => {
     const name = file.originalname.split(".")[0].split(" ").join("_");
     const extension = MIME_TYPES[file.mimetype];

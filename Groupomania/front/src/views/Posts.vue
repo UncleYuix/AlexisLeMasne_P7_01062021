@@ -18,7 +18,7 @@
       <p class="display-6 p-4">
         <em>
           le forum est soumis à modération, contactez l'administrateur en cas de
-          problèmes ou situation ne respectant
+          problème ou situation ne respectant
         </em>
         <router-link to="/rules"> les règles </router-link>
       </p>
