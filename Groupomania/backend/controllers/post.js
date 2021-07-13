@@ -71,14 +71,12 @@ exports.getOnePost = (req, res) => {
                   [req.params.id, -1],
                   function (errors, dislikes) {
                     if (errors) return res.status(500).json({ error: errors });
-                    return res
-                      .status(200)
-                      .json({
-                        post: result,
-                        commentaires: resultat,
-                        likes: likes,
-                        dislikes: dislikes,
-                      });
+                    return res.status(200).json({
+                      post: result,
+                      commentaires: resultat,
+                      likes: likes,
+                      dislikes: dislikes,
+                    });
                   }
                 );
               }
@@ -110,13 +108,11 @@ exports.myPosts = (req, res) => {
               [result[0].id],
               function (errs, resultats) {
                 if (errs) return res.status(500).json({ error: errs });
-                return res
-                  .status(200)
-                  .json({
-                    post: result,
-                    commentaires: resultat,
-                    likes: resultats,
-                  });
+                return res.status(200).json({
+                  post: result,
+                  commentaires: resultat,
+                  likes: resultats,
+                });
               }
             );
           }
@@ -152,7 +148,17 @@ exports.modifyPost = (req, res) => {
 };
 
 exports.deletePost = (req, res) => {
-  if (req.params.id) {
+  if (req.params.id) { 
+
+    conn.query(
+      "SELECT * FROM posts WHERE id=?",
+      [req.params.id],
+      function (error, result) {
+        // console.log(result)
+        // console.log(result[0].imageUrl)
+        const filename = result[0].imageUrl.split("/images/")[1];
+        fs.unlink(`images/${filename}`, () => {}) ;
+      });
     conn.query(
       "DELETE FROM commentaries WHERE postId=?",
       [req.params.id],
@@ -167,6 +173,7 @@ exports.deletePost = (req, res) => {
         if (error) return res.status(503).json({ error: error });
       }
     );
+
     conn.query(
       "DELETE FROM posts WHERE id=?",
       [req.params.id],
@@ -230,13 +237,11 @@ exports.likePost = (req, res) => {
                       function (problem, nbeDislikes) {
                         if (error)
                           return res.status(500).json({ error: problem });
-                        return res
-                          .status(200)
-                          .json({
-                            message: "Like ou dislike retiré!",
-                            likes: nbeLikes.length,
-                            dislikes: nbeDislikes.length,
-                          });
+                        return res.status(200).json({
+                          message: "Like ou dislike retiré!",
+                          likes: nbeLikes.length,
+                          dislikes: nbeDislikes.length,
+                        });
                       }
                     );
                   }
@@ -263,13 +268,11 @@ exports.likePost = (req, res) => {
                       function (problem, nbeDislikes) {
                         if (error)
                           return res.status(500).json({ error: problem });
-                        return res
-                          .status(200)
-                          .json({
-                            message: "Post liké!",
-                            likes: nbeLikes.length,
-                            dislikes: nbeDislikes.length,
-                          });
+                        return res.status(200).json({
+                          message: "Post liké!",
+                          likes: nbeLikes.length,
+                          dislikes: nbeDislikes.length,
+                        });
                       }
                     );
                   }
@@ -306,13 +309,11 @@ exports.likePost = (req, res) => {
                       function (problem, nbeDislikes) {
                         if (error)
                           return res.status(500).json({ error: problem });
-                        return res
-                          .status(200)
-                          .json({
-                            message: "Like ou dislike retiré!",
-                            likes: nbeLikes.length,
-                            dislikes: nbeDislikes.length,
-                          });
+                        return res.status(200).json({
+                          message: "Like ou dislike retiré!",
+                          likes: nbeLikes.length,
+                          dislikes: nbeDislikes.length,
+                        });
                       }
                     );
                   }
@@ -339,13 +340,11 @@ exports.likePost = (req, res) => {
                       function (problem, nbeDislikes) {
                         if (error)
                           return res.status(500).json({ error: problem });
-                        return res
-                          .status(200)
-                          .json({
-                            message: "Post disliké!",
-                            likes: nbeLikes.length,
-                            dislikes: nbeDislikes.length,
-                          });
+                        return res.status(200).json({
+                          message: "Post disliké!",
+                          likes: nbeLikes.length,
+                          dislikes: nbeDislikes.length,
+                        });
                       }
                     );
                   }

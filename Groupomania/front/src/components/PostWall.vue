@@ -163,12 +163,17 @@ export default {
     },
 
     // fonction pour delete un post avec la requete axios
-    deletePost() {
+deletePost() {
       this.$axios
         .delete(`/posts/${this.postId}`)
         .then(this.$emit("post-deleted"))
-        .catch((error) => (this.message = error));
-    },
+        .catch((error) => {
+        this.message = error
+          console.log(error)
+        }
+
+        );
+},
     // fonctions pour ajouter un like / dislike avec la requete post axios
     addLike() {
       this.$axios
