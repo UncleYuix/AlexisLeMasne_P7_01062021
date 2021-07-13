@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // de la même manière que le P6, dotenv est utilisé, il ne doit pas être envoyé sur git pour sécuriser le projet
+// jsonwebtoken agit
 
 module.exports = (req, res, next) => {
   try {
