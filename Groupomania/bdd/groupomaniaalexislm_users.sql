@@ -16,33 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `commentaries`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `commentaries`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `commentaries` (
+CREATE TABLE `users` (
   `id` smallint unsigned NOT NULL AUTO_INCREMENT,
-  `userId` smallint unsigned NOT NULL,
-  `postId` smallint unsigned NOT NULL,
-  `date` timestamp NOT NULL,
-  `comment` varchar(250) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `dateInscription` timestamp NOT NULL,
+  `lastUpdate` timestamp NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_user_id_comm` (`userId`),
-  KEY `fk_post_id_comm` (`postId`),
-  CONSTRAINT `fk_post_id_comm` FOREIGN KEY (`postId`) REFERENCES `posts` (`id`),
-  CONSTRAINT `fk_user_id_comm` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commentaries`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `commentaries` WRITE;
-/*!40000 ALTER TABLE `commentaries` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commentaries` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Michel','Desjoyaux','Michel@gmail.com','$2b$10$byt8mjVMEGMs4aV4VQYvHOTD1cR2kzReZQvQ7PIA3h7iJ4IjSlh0i','admin','2021-07-07 08:55:34','2021-07-13 15:36:05');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-12 16:20:34
+-- Dump completed on 2021-07-13 17:54:53

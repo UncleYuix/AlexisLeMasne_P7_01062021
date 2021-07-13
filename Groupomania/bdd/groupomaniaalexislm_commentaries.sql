@@ -16,32 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `likes`
+-- Table structure for table `commentaries`
 --
 
-DROP TABLE IF EXISTS `likes`;
+DROP TABLE IF EXISTS `commentaries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `likes` (
+CREATE TABLE `commentaries` (
   `id` smallint unsigned NOT NULL AUTO_INCREMENT,
   `userId` smallint unsigned NOT NULL,
   `postId` smallint unsigned NOT NULL,
-  `type` tinyint NOT NULL,
+  `date` timestamp NOT NULL,
+  `comment` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_user_id_like` (`userId`),
-  KEY `fk_post_id_like` (`postId`),
-  CONSTRAINT `fk_post_id_like` FOREIGN KEY (`postId`) REFERENCES `posts` (`id`),
-  CONSTRAINT `fk_user_id_like` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+  KEY `fk_user_id_comm` (`userId`),
+  KEY `fk_post_id_comm` (`postId`),
+  CONSTRAINT `fk_post_id_comm` FOREIGN KEY (`postId`) REFERENCES `posts` (`id`),
+  CONSTRAINT `fk_user_id_comm` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `likes`
+-- Dumping data for table `commentaries`
 --
 
-LOCK TABLES `likes` WRITE;
-/*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
+LOCK TABLES `commentaries` WRITE;
+/*!40000 ALTER TABLE `commentaries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commentaries` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-12 16:20:34
+-- Dump completed on 2021-07-13 17:54:53
